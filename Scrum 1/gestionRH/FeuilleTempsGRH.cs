@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace gestionRH
 {
@@ -24,43 +26,69 @@ namespace gestionRH
 
         private void btnOuvrir_Click(object sender, EventArgs e)
         {
-            string[] fichier ={ "../json/FeuilleTempsExemple.json", "../json/RenduExemple.json" };
+            //user selects JSON file to be analyzed
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.ShowDialog();
+            string selectedFileName = openFileDialog1.FileName;
+            string fileContent = File.ReadAllText(selectedFileName);
+            //transform the string into usable format
+            string[] fichier= fileContent.Split(new char[] {';' }); 
+            //MessageBox.Show(fichier[0]); //TODO remove after debugging
             Valider(fichier);
         }
 
 
         public void Valider(string[] args)
         {
+            /*
             // Vérifier si les arguments sont fournis
             if (args.Length != 2)
             {
                 Console.WriteLine("Usage: TimeSheetValidator inputfile.json result.json");
                 return;
             }
+            */
+            MessageBox.Show("valider lancer");
 
             // Lecture du fichier JSON d'entree
-            string inputFilePath = args[0];
-            string inputJson = File.ReadAllText(inputFilePath);
+            //string inputFilePath = args[0];
+            //string inputJson = File.ReadAllText(inputFilePath);
 
             // Extraction du numéro d'employe et des donnees de la feuille de temps
-            JObject input = JObject.Parse(inputJson);
+            JObject input = JObject.Parse(args[0]);
                 
-            // Extract employee number and timesheet data
+            // Extract employee number 
             int employeeNumber = (int)input["numeroEmploye"];
-            JArray timesheetData = (JArray)input["jour1"];
+
+            //Extract timesheet data for each day
+            JArray jour1 = (JArray)input["jour1"];
+            JArray jour2 = (JArray)input["jour2"];
+            JArray jour3 = (JArray)input["jour3"];
+            JArray jour4 = (JArray)input["jour4"];
+            JArray jour5 = (JArray)input["jour5"];
+            JArray weekend1 = (JArray)input["weekend1"];
+            JArray weekend2 = (JArray)input["weekend2"];
+            JArray timesheetData = new JArray(jour1, jour2, jour3, jour4, jour5, weekend1, weekend2);
+
+            MessageBox.Show(timesheetData.ToString()); //TODO remove after debugging
 
             // Validation des donnees de la feuille de temps
             JArray errors = new JArray();
 
-            // Règle 1 : L'employe doit travailler un nombre minimum d'heures
+            // Règle 1 : L'employe doit travailler un nombre minimum d'heures au bureau par semaine
             int totalMinutes = 0;
-            foreach (JObject entry in timesheetData)
+            foreach (JArray day in timesheetData)
             {
-                totalMinutes += (int)entry["minutes"];
+                foreach (JObject entry in day) {
+                    if ((int)entry["projet"] < (36*60)) { 
+                        totalMinutes += (int)entry["minutes"];
+                    }
+                }
             }
-            if (totalMinutes < 240)
+
+            if (totalMinutes < (36*60))
             {
-                errors.Add("L'employé n'a pas travaillé le nombre minimal d'heures");
+                errors.Add("L'employé n'a pas travaillé le nombre minimal d'heures eu bureau");
             }
 
             // Règle 2 : L'employé ne peut pas travailler à distance plus de 8 heures par semaine
