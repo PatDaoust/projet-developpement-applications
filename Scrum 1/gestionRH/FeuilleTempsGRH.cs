@@ -69,6 +69,8 @@ namespace gestionRH
             JArray weekend1 = (JArray)input["weekend1"];
             JArray weekend2 = (JArray)input["weekend2"];
             JArray timesheetData = new JArray(jour1, jour2, jour3, jour4, jour5, weekend1, weekend2);
+            JArray timesheetJours = new JArray(jour1, jour2, jour3, jour4, jour5);
+            JArray timesheetWeekend = new JArray(weekend1, weekend2);
 
             MessageBox.Show(timesheetData.ToString()); //TODO remove after debugging
 
@@ -77,39 +79,111 @@ namespace gestionRH
 
             // Règle 1 : L'employe doit travailler un nombre minimum d'heures au bureau par semaine
             int totalMinutes = 0;
-            foreach (JArray day in timesheetData)
-            {
+            if (employeeNumber<1000) {
+                foreach (JArray day in timesheetData)
+                {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] < (900)) { 
+                            totalMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+
+                if (totalMinutes < (36*60))
+                {
+                    errors.Add("L'employé d'administration n'a pas travaillé le nombre minimal d'heures eu bureau");
+                }
+            }
+
+            // Règle 2 : Les employés normaux doivent travailler au moins 38 heures au bureau par semaine (excluant le télétravail)
+            totalMinutes = 0;
+            if (employeeNumber>1000) {
+                foreach (JArray day in timesheetData) {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] < (900)) {
+                            totalMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+
+                if (totalMinutes < (38*60)) {
+                    errors.Add("L'employé normal n'a pas travaillé le nombre minimal d'heures eu bureau");
+                }
+            }
+            // Règle 3 : Aucun employé n'a le droit de passer plus de 43 heures au bureau.
+            totalMinutes = 0;
+            foreach (JArray day in timesheetData) {
                 foreach (JObject entry in day) {
-                    if ((int)entry["projet"] < (36*60)) { 
+                    if ((int)entry["projet"] < (900)) {
                         totalMinutes += (int)entry["minutes"];
                     }
                 }
             }
 
-            if (totalMinutes < (36*60))
-            {
-                errors.Add("L'employé n'a pas travaillé le nombre minimal d'heures eu bureau");
+            if (totalMinutes > (43*60)) {
+                errors.Add("L'employé a  travaillé trop d'heures eu bureau");
             }
 
-            // Règle 2 : L'employé ne peut pas travailler à distance plus de 8 heures par semaine
-            int telecommutingMinutes = 0;
-            foreach (JObject entry in timesheetData)
-            {
-                int projectCode = (int)entry["projet"];
-                int minutes = (int)entry["minutes"];
-                if (projectCode >= 900)
-                {
-                    telecommutingMinutes += minutes;
+            // Règle 4 : Les employés de l'administration ne doivent pas faire plus de 10 heures de télétravail par semaine.
+            if (employeeNumber<1000) {
+                int telecommutingMinutes = 0;
+                foreach (JArray day in timesheetData) {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] >= (900)) {
+                            telecommutingMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+
+                if (telecommutingMinutes > (10*60)) {
+                    errors.Add("L'employé d'administration a dépassé la durée autorisée pour le travail à distance");
                 }
             }
-            if (telecommutingMinutes > 480)
-            {
-                errors.Add("L'employé a dépassé la durée autorisée pour le travail à distance");
+
+            // Règle 5 : Les employés normaux peuvent faire autant de télétravail qu'ils le souhaitent.
+            //rien a verifier
+
+            // Règle 6 : Les employés normaux doivent faire un minimum quotidien de 6 heures au bureau pour les jours ouvrables
+            //(lundi au vendredi). 
+            if (employeeNumber>1000) {
+                totalMinutes = 0;
+                foreach (JArray day in timesheetJours) {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] < (900)) {
+                            totalMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+
+                if (totalMinutes < (6*5*60)) {
+                    errors.Add("L'employé normal n'a pas travaillé le minimum quotidien d'heures eu bureau");
+                }
             }
+
+            // Règle 7 : Les employés de l'administration doivent faire un minimum quotidien de 4 heures au bureau pour les jours
+            //ouvrables
+            if (employeeNumber<1000) {
+                totalMinutes = 0;
+                foreach (JArray day in timesheetJours) {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] < (900)) {
+                            totalMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+
+                if (totalMinutes < (4*5*60)) {
+                    errors.Add("L'employé normal n'a pas travaillé le minimum quotidien d'heures eu bureau");
+                }
+            }
+
+            //pour debugging
+            MessageBox.Show(errors.ToString());
 
             // Écriture du fichier JSON de sortie
             string outputFilePath = args[1];
             File.WriteAllText(outputFilePath, errors.ToString());
+
         }
     }
 }
