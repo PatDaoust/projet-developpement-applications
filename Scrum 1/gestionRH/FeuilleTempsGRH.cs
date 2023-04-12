@@ -48,8 +48,6 @@ namespace gestionRH
                 return;
             }
             */
-            MessageBox.Show("valider lancer");
-
             // Lecture du fichier JSON d'entree
             //string inputFilePath = args[0];
             //string inputJson = File.ReadAllText(inputFilePath);
@@ -72,7 +70,7 @@ namespace gestionRH
             JArray timesheetJours = new JArray(jour1, jour2, jour3, jour4, jour5);
             JArray timesheetWeekend = new JArray(weekend1, weekend2);
 
-            MessageBox.Show(timesheetData.ToString()); //TODO remove after debugging
+            //MessageBox.Show(timesheetData.ToString()); //TODO remove after debugging
 
             // Validation des donnees de la feuille de temps
             JArray errors = new JArray();
@@ -121,7 +119,7 @@ namespace gestionRH
             }
 
             if (totalMinutes > (43*60)) {
-                errors.Add("L'employé a  travaillé trop d'heures eu bureau");
+                errors.Add("L'employé a travaillé trop d'heures eu bureau");
             }
 
             // Règle 4 : Les employés de l'administration ne doivent pas faire plus de 10 heures de télétravail par semaine.
@@ -156,7 +154,7 @@ namespace gestionRH
                 }
 
                 if (totalMinutes < (6*5*60)) {
-                    errors.Add("L'employé normal n'a pas travaillé le minimum quotidien d'heures eu bureau");
+                    errors.Add("L'employé normal n'a pas travaillé le minimum quotidien d'heures au bureau");
                 }
             }
 
@@ -173,14 +171,15 @@ namespace gestionRH
                 }
 
                 if (totalMinutes < (4*5*60)) {
-                    errors.Add("L'employé normal n'a pas travaillé le minimum quotidien d'heures eu bureau");
+                    errors.Add("L'employé d'administration n'a pas travaillé le minimum quotidien d'heures au bureau");
                 }
             }
 
             //pour debugging
-            MessageBox.Show(errors.ToString());
+            //MessageBox.Show(errors.ToString());
 
             // Écriture du fichier JSON de sortie
+            //TODO apply output
             string outputFilePath = args[1];
             File.WriteAllText(outputFilePath, errors.ToString());
 
