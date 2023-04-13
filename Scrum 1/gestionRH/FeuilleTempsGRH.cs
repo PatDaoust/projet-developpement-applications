@@ -18,6 +18,10 @@ namespace gestionRH
     public partial class FeuilleTempsGRH : Form
     {
         public int numEmploye = LoginGRH.numEmploye;
+        string fichierSelection;
+        string[] fichierOuvert;
+        JArray errors;
+
         public FeuilleTempsGRH()
         {
             InitializeComponent();
@@ -30,33 +34,36 @@ namespace gestionRH
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.ShowDialog();
             string selectedFileName = openFileDialog1.FileName;
-            string fileContent = File.ReadAllText(selectedFileName);
-            //transform the string into usable format
-            string[] fichier= fileContent.Split(new char[] {';' }); 
-            //MessageBox.Show(fichier[0]); //TODO remove after debugging
-            Valider(fichier);
+            try
+            {
+                // Get the filename from the selected file path
+                fichierSelection = Path.GetFileName(selectedFileName);
+                string fileContent = File.ReadAllText(selectedFileName);
+                //transform the string into usable format
+                fichierOuvert = fileContent.Split(new char[] { ';' });
+                txbFichierOuvert.Text = fichierSelection;
+                rtbAffiche.Text = fichierOuvert[0];
+            }
+            catch
+            {
+                MessageBox.Show("Aucun fichier selectionné!", "Fichier Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            //MessageBox.Show(fichier[0]); //TODO remove after debugging            
         }
 
 
-        public void Valider(string[] args)
+        public void Valider(string[] feuilleTemps)
         {
-            /*
-            // Vérifier si les arguments sont fournis
-            if (args.Length != 2)
-            {
-                Console.WriteLine("Usage: TimeSheetValidator inputfile.json result.json");
-                return;
-            }
-            */
             // Lecture du fichier JSON d'entree
+
             //string inputFilePath = args[0];
             //string inputJson = File.ReadAllText(inputFilePath);
 
             // Extraction du numéro d'employe et des donnees de la feuille de temps
-            JObject input = JObject.Parse(args[0]);
+            JObject input = JObject.Parse(feuilleTemps[0]);
                 
             // Extract employee number 
-            int employeeNumber = (int)input["numeroEmploye"];
+            int numeroEmploye = (int)input["numeroEmploye"];
 
             //Extract timesheet data for each day
             JArray jour1 = (JArray)input["jour1"];
@@ -73,11 +80,11 @@ namespace gestionRH
             //MessageBox.Show(timesheetData.ToString()); //TODO remove after debugging
 
             // Validation des donnees de la feuille de temps
-            JArray errors = new JArray();
+            errors = new JArray();
 
             // Règle 1 : L'employe doit travailler un nombre minimum d'heures au bureau par semaine
             int totalMinutes = 0;
-            if (employeeNumber<1000) {
+            if (numeroEmploye<1000) {
                 foreach (JArray day in timesheetData)
                 {
                     foreach (JObject entry in day) {
@@ -95,7 +102,7 @@ namespace gestionRH
 
             // Règle 2 : Les employés normaux doivent travailler au moins 38 heures au bureau par semaine (excluant le télétravail)
             totalMinutes = 0;
-            if (employeeNumber>1000) {
+            if (numeroEmploye>1000) {
                 foreach (JArray day in timesheetData) {
                     foreach (JObject entry in day) {
                         if ((int)entry["projet"] < (900)) {
@@ -123,7 +130,7 @@ namespace gestionRH
             }
 
             // Règle 4 : Les employés de l'administration ne doivent pas faire plus de 10 heures de télétravail par semaine.
-            if (employeeNumber<1000) {
+            if (numeroEmploye<1000) {
                 int telecommutingMinutes = 0;
                 foreach (JArray day in timesheetData) {
                     foreach (JObject entry in day) {
@@ -143,7 +150,7 @@ namespace gestionRH
 
             // Règle 6 : Les employés normaux doivent faire un minimum quotidien de 6 heures au bureau pour les jours ouvrables
             //(lundi au vendredi). 
-            if (employeeNumber>1000) {
+            if (numeroEmploye>1000) {
                 totalMinutes = 0;
                 foreach (JArray day in timesheetJours) {
                     foreach (JObject entry in day) {
@@ -160,7 +167,7 @@ namespace gestionRH
 
             // Règle 7 : Les employés de l'administration doivent faire un minimum quotidien de 4 heures au bureau pour les jours
             //ouvrables
-            if (employeeNumber<1000) {
+            if (numeroEmploye<1000) {
                 totalMinutes = 0;
                 foreach (JArray day in timesheetJours) {
                     foreach (JObject entry in day) {
@@ -177,12 +184,27 @@ namespace gestionRH
 
             //pour debugging
             //MessageBox.Show(errors.ToString());
+        }
+
+        private void btnValider_Click(object sender, EventArgs e)
+        {
+            Valider(fichierOuvert);
+            rtbAffiche.Text = errors.ToString();
+        }
+
+        private void btnRapport_Click(object sender, EventArgs e)
+        {
+            // Display the save file dialog and get the selected file path
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Text files (*.json)|*.json|All files (*.*)|*.*";
+            saveFileDialog1.ShowDialog();
+            string outputFilePath = saveFileDialog1.FileName;
 
             // Écriture du fichier JSON de sortie
-            //TODO apply output
-            string outputFilePath = args[1];
-            File.WriteAllText(outputFilePath, errors.ToString());
-
+            if (outputFilePath != "")
+            {
+                File.WriteAllText(outputFilePath, errors.ToString());
+            }
         }
     }
 }
