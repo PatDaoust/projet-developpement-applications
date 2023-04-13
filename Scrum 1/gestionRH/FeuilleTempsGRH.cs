@@ -54,11 +54,6 @@ namespace gestionRH
 
         public void Valider(string[] feuilleTemps)
         {
-            // Lecture du fichier JSON d'entree
-
-            //string inputFilePath = args[0];
-            //string inputJson = File.ReadAllText(inputFilePath);
-
             // Extraction du numéro d'employe et des donnees de la feuille de temps
             JObject input = JObject.Parse(feuilleTemps[0]);
                 
@@ -76,8 +71,6 @@ namespace gestionRH
             JArray timesheetData = new JArray(jour1, jour2, jour3, jour4, jour5, weekend1, weekend2);
             JArray timesheetJours = new JArray(jour1, jour2, jour3, jour4, jour5);
             JArray timesheetWeekend = new JArray(weekend1, weekend2);
-
-            //MessageBox.Show(timesheetData.ToString()); //TODO remove after debugging
 
             // Validation des donnees de la feuille de temps
             errors = new JArray();
@@ -181,9 +174,6 @@ namespace gestionRH
                     errors.Add("L'employé d'administration n'a pas travaillé le minimum quotidien d'heures au bureau");
                 }
             }
-
-            //pour debugging
-            //MessageBox.Show(errors.ToString());
         }
 
         private void btnValider_Click(object sender, EventArgs e)

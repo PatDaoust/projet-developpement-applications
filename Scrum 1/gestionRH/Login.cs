@@ -26,7 +26,7 @@ namespace gestionRH
             try
             {
                 numEmploye = Convert.ToInt32(txbNumEmploye.Text);
-                if (numEmploye < 900)
+                if (numEmploye > 1000)
                 {
                     MessageBox.Show("Seul les administrateurs sont autorisés à se connecter", "Privilèges insuffisants", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     loginReussi = false;
