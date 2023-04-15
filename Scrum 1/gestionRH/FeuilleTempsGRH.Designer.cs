@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FeuilleTempsGRH));
-            this.txbNumEmploye = new System.Windows.Forms.TextBox();
+            this.txbNumUtilisateur = new System.Windows.Forms.TextBox();
             this.txbFichierOuvert = new System.Windows.Forms.TextBox();
             this.btnOuvrir = new System.Windows.Forms.Button();
             this.rtbAffiche = new System.Windows.Forms.RichTextBox();
@@ -42,14 +42,14 @@
             // 
             // txbNumEmploye
             // 
-            this.txbNumEmploye.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txbNumUtilisateur.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbNumEmploye.Enabled = false;
-            this.txbNumEmploye.Location = new System.Drawing.Point(176, 20);
-            this.txbNumEmploye.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txbNumEmploye.Name = "txbNumEmploye";
-            this.txbNumEmploye.Size = new System.Drawing.Size(129, 20);
-            this.txbNumEmploye.TabIndex = 0;
+            this.txbNumUtilisateur.Enabled = false;
+            this.txbNumUtilisateur.Location = new System.Drawing.Point(176, 20);
+            this.txbNumUtilisateur.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbNumUtilisateur.Name = "txbNumEmploye";
+            this.txbNumUtilisateur.Size = new System.Drawing.Size(129, 20);
+            this.txbNumUtilisateur.TabIndex = 0;
             // 
             // txbFichierOuvert
             // 
@@ -148,7 +148,7 @@
             this.Controls.Add(this.rtbAffiche);
             this.Controls.Add(this.btnOuvrir);
             this.Controls.Add(this.txbFichierOuvert);
-            this.Controls.Add(this.txbNumEmploye);
+            this.Controls.Add(this.txbNumUtilisateur);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(450, 600);
             this.Name = "FeuilleTempsGRH";
@@ -161,7 +161,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txbNumEmploye;
+        private System.Windows.Forms.TextBox txbNumUtilisateur;
         private System.Windows.Forms.TextBox txbFichierOuvert;
         private System.Windows.Forms.Button btnOuvrir;
         private System.Windows.Forms.RichTextBox rtbAffiche;

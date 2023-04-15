@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginGRH));
             this.lblNumEmploye = new System.Windows.Forms.Label();
-            this.txbNumEmploye = new System.Windows.Forms.TextBox();
+            this.txbNumUtilisateur = new System.Windows.Forms.TextBox();
             this.btnConnection = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -46,10 +46,10 @@
             // 
             // txbNumEmploye
             // 
-            this.txbNumEmploye.Location = new System.Drawing.Point(201, 40);
-            this.txbNumEmploye.Name = "txbNumEmploye";
-            this.txbNumEmploye.Size = new System.Drawing.Size(100, 20);
-            this.txbNumEmploye.TabIndex = 1;
+            this.txbNumUtilisateur.Location = new System.Drawing.Point(201, 40);
+            this.txbNumUtilisateur.Name = "txbNumEmploye";
+            this.txbNumUtilisateur.Size = new System.Drawing.Size(100, 20);
+            this.txbNumUtilisateur.TabIndex = 1;
             // 
             // btnConnection
             // 
@@ -78,7 +78,7 @@
             this.ClientSize = new System.Drawing.Size(400, 147);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnConnection);
-            this.Controls.Add(this.txbNumEmploye);
+            this.Controls.Add(this.txbNumUtilisateur);
             this.Controls.Add(this.lblNumEmploye);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -94,7 +94,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblNumEmploye;
-        private System.Windows.Forms.TextBox txbNumEmploye;
+        private System.Windows.Forms.TextBox txbNumUtilisateur;
         private System.Windows.Forms.Button btnConnection;
         private System.Windows.Forms.Button btnAnnuler;
     }

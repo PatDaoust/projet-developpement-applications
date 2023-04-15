@@ -12,7 +12,7 @@ namespace gestionRH
 {
     public partial class LoginGRH : Form
     {
-        public static int numEmploye;
+        public static int numUtilisateur;
         bool loginReussi = false;
         
         public LoginGRH()
@@ -25,8 +25,8 @@ namespace gestionRH
         {
             try
             {
-                numEmploye = Convert.ToInt32(txbNumEmploye.Text);
-                if (numEmploye > 1000)
+                numUtilisateur = Convert.ToInt32(txbNumUtilisateur.Text);
+                if (numUtilisateur > 1000)
                 {
                     MessageBox.Show("Seul les administrateurs sont autorisés à se connecter", "Privilèges insuffisants", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     loginReussi = false;
@@ -51,7 +51,7 @@ namespace gestionRH
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            txbNumEmploye.Clear();
+            txbNumUtilisateur.Clear();
         }
     }
 }

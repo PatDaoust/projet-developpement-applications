@@ -17,7 +17,7 @@ namespace gestionRH
 {
     public partial class FeuilleTempsGRH : Form
     {
-        public int numEmploye = LoginGRH.numEmploye;
+        public int numUtilisateur = LoginGRH.numUtilisateur;
         string fichierSelection;
         string[] fichierOuvert;
         JArray errors;
@@ -25,7 +25,7 @@ namespace gestionRH
         public FeuilleTempsGRH()
         {
             InitializeComponent();
-            txbNumEmploye.Text = numEmploye.ToString();
+            txbNumUtilisateur.Text = numUtilisateur.ToString();
         }
 
         private void btnOuvrir_Click(object sender, EventArgs e)
@@ -51,7 +51,109 @@ namespace gestionRH
             //MessageBox.Show(fichier[0]); //TODO remove after debugging            
         }
 
+        public void regle1(int numeroEmploye, JArray timesheetData) {
+            // Règle 1 : L'employe doit travailler un nombre minimum d'heures au bureau par semaine
+            int totalMinutes = 0;
+            if (numeroEmploye<1000) {
+                foreach (JArray day in timesheetData) {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] < (900)) {
+                            totalMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+                if (totalMinutes < (36*60)) {
+                    errors.Add("L'employé d'administration n'a pas travaillé le nombre minimal d'heures eu bureau");
+                }
+            }
+        }
 
+        public void regle2(int numeroEmploye, JArray timesheetData) {
+            // Règle 2 : Les employés normaux doivent travailler au moins 38 heures au bureau par semaine (excluant le télétravail)
+            int totalMinutes = 0;
+            if (numeroEmploye>1000) {
+                foreach (JArray day in timesheetData) {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] < (900)) {
+                            totalMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+
+                if (totalMinutes < (38*60)) {
+                    errors.Add("L'employé normal n'a pas travaillé le nombre minimal d'heures eu bureau");
+                }
+            }
+        }
+
+        public void regle3(JArray timesheetData) {
+            // Règle 3 : Aucun employé n'a le droit de passer plus de 43 heures au bureau.
+            int totalMinutes = 0;
+            foreach (JArray day in timesheetData) {
+                foreach (JObject entry in day) {
+                    if ((int)entry["projet"] < (900)) {
+                        totalMinutes += (int)entry["minutes"];
+                    }
+                }
+            }
+            if (totalMinutes > (43*60)) {
+                errors.Add("L'employé a travaillé trop d'heures eu bureau");
+            }
+        }
+
+        public void regle4(int numeroEmploye, JArray timesheetData) {
+            // Règle 4 : Les employés de l'administration ne doivent pas faire plus de 10 heures de télétravail par semaine.
+            if (numeroEmploye<1000) {
+                int telecommutingMinutes = 0;
+                foreach (JArray day in timesheetData) {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] >= (900)) {
+                            telecommutingMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+                if (telecommutingMinutes > (10*60)) {
+                    errors.Add("L'employé d'administration a dépassé la durée autorisée pour le travail à distance");
+                }
+            }
+        }
+        public void regle5() {
+            //rien a verifier
+            }
+        public void regle6(int numeroEmploye, JArray timesheetJours) {
+            // Règle 6 : Les employés normaux doivent faire un minimum quotidien de 6 heures au bureau pour les jours ouvrables
+            //(lundi au vendredi). 
+            int totalMinutes = 0;
+            if (numeroEmploye>1000) {
+                totalMinutes = 0;
+                foreach (JArray day in timesheetJours) {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] < (900)) {
+                            totalMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+                if (totalMinutes < (6*5*60)) {
+                    errors.Add("L'employé normal n'a pas travaillé le minimum quotidien d'heures au bureau");
+                }
+            }
+        }
+        public void regle7(int numeroEmploye, JArray timesheetJours) {
+            int totalMinutes = 0;
+            if (numeroEmploye<1000) {
+                foreach (JArray day in timesheetJours) {
+                    foreach (JObject entry in day) {
+                        if ((int)entry["projet"] < (900)) {
+                            totalMinutes += (int)entry["minutes"];
+                        }
+                    }
+                }
+
+                if (totalMinutes < (4*5*60)) {
+                    errors.Add("L'employé d'administration n'a pas travaillé le minimum quotidien d'heures au bureau");
+                }
+            }
+        }
         public void Valider(string[] feuilleTemps)
         {
             // Extraction du numéro d'employe et des donnees de la feuille de temps
@@ -75,105 +177,20 @@ namespace gestionRH
             // Validation des donnees de la feuille de temps
             errors = new JArray();
 
-            // Règle 1 : L'employe doit travailler un nombre minimum d'heures au bureau par semaine
-            int totalMinutes = 0;
-            if (numeroEmploye<1000) {
-                foreach (JArray day in timesheetData)
-                {
-                    foreach (JObject entry in day) {
-                        if ((int)entry["projet"] < (900)) { 
-                            totalMinutes += (int)entry["minutes"];
-                        }
-                    }
-                }
+            regle1(numeroEmploye, timesheetData);
+            
+            regle2(numeroEmploye, timesheetData);
 
-                if (totalMinutes < (36*60))
-                {
-                    errors.Add("L'employé d'administration n'a pas travaillé le nombre minimal d'heures eu bureau");
-                }
-            }
+            regle3(timesheetData);
 
-            // Règle 2 : Les employés normaux doivent travailler au moins 38 heures au bureau par semaine (excluant le télétravail)
-            totalMinutes = 0;
-            if (numeroEmploye>1000) {
-                foreach (JArray day in timesheetData) {
-                    foreach (JObject entry in day) {
-                        if ((int)entry["projet"] < (900)) {
-                            totalMinutes += (int)entry["minutes"];
-                        }
-                    }
-                }
+            regle4(numeroEmploye, timesheetData);
 
-                if (totalMinutes < (38*60)) {
-                    errors.Add("L'employé normal n'a pas travaillé le nombre minimal d'heures eu bureau");
-                }
-            }
-            // Règle 3 : Aucun employé n'a le droit de passer plus de 43 heures au bureau.
-            totalMinutes = 0;
-            foreach (JArray day in timesheetData) {
-                foreach (JObject entry in day) {
-                    if ((int)entry["projet"] < (900)) {
-                        totalMinutes += (int)entry["minutes"];
-                    }
-                }
-            }
+            regle5();
 
-            if (totalMinutes > (43*60)) {
-                errors.Add("L'employé a travaillé trop d'heures eu bureau");
-            }
+            regle6(numeroEmploye, timesheetJours);
 
-            // Règle 4 : Les employés de l'administration ne doivent pas faire plus de 10 heures de télétravail par semaine.
-            if (numeroEmploye<1000) {
-                int telecommutingMinutes = 0;
-                foreach (JArray day in timesheetData) {
-                    foreach (JObject entry in day) {
-                        if ((int)entry["projet"] >= (900)) {
-                            telecommutingMinutes += (int)entry["minutes"];
-                        }
-                    }
-                }
+            regle7(numeroEmploye, timesheetJours);
 
-                if (telecommutingMinutes > (10*60)) {
-                    errors.Add("L'employé d'administration a dépassé la durée autorisée pour le travail à distance");
-                }
-            }
-
-            // Règle 5 : Les employés normaux peuvent faire autant de télétravail qu'ils le souhaitent.
-            //rien a verifier
-
-            // Règle 6 : Les employés normaux doivent faire un minimum quotidien de 6 heures au bureau pour les jours ouvrables
-            //(lundi au vendredi). 
-            if (numeroEmploye>1000) {
-                totalMinutes = 0;
-                foreach (JArray day in timesheetJours) {
-                    foreach (JObject entry in day) {
-                        if ((int)entry["projet"] < (900)) {
-                            totalMinutes += (int)entry["minutes"];
-                        }
-                    }
-                }
-
-                if (totalMinutes < (6*5*60)) {
-                    errors.Add("L'employé normal n'a pas travaillé le minimum quotidien d'heures au bureau");
-                }
-            }
-
-            // Règle 7 : Les employés de l'administration doivent faire un minimum quotidien de 4 heures au bureau pour les jours
-            //ouvrables
-            if (numeroEmploye<1000) {
-                totalMinutes = 0;
-                foreach (JArray day in timesheetJours) {
-                    foreach (JObject entry in day) {
-                        if ((int)entry["projet"] < (900)) {
-                            totalMinutes += (int)entry["minutes"];
-                        }
-                    }
-                }
-
-                if (totalMinutes < (4*5*60)) {
-                    errors.Add("L'employé d'administration n'a pas travaillé le minimum quotidien d'heures au bureau");
-                }
-            }
         }
 
         private void btnValider_Click(object sender, EventArgs e)
@@ -198,6 +215,3 @@ namespace gestionRH
         }
     }
 }
-
-
-
