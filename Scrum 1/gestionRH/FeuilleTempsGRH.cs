@@ -63,7 +63,7 @@ namespace gestionRH
                     }
                 }
                 if (totalMinutes < (36*60)) {
-                    errors.Add("L'employé d'administration n'a pas travaillé le nombre minimal d'heures eu bureau");
+                    errors.Add("L'employé d'administration n'a pas travaillé le nombre minimal d'heures au bureau");
                 }
             }
         }
@@ -81,7 +81,7 @@ namespace gestionRH
                 }
 
                 if (totalMinutes < (38*60)) {
-                    errors.Add("L'employé normal n'a pas travaillé le nombre minimal d'heures eu bureau");
+                    errors.Add("L'employé normal n'a pas travaillé le nombre minimal d'heures au bureau");
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace gestionRH
                 }
             }
             if (totalMinutes > (43*60)) {
-                errors.Add("L'employé a travaillé trop d'heures eu bureau");
+                errors.Add("L'employé a travaillé trop d'heures au bureau");
             }
         }
 
