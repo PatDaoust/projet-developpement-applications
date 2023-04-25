@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntreeFeuilleDeTemps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntreeFeuilleDeTemps.Designer.cs">
+      <DependentUpon>EntreeFeuilleDeTemps.cs</DependentUpon>
+    </Compile>
     <Compile Include="FeuilleTempsGRH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="visualiserFeuilleDeTemps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="visualiserFeuilleDeTemps.Designer.cs">
+      <DependentUpon>visualiserFeuilleDeTemps.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EntreeFeuilleDeTemps.resx">
+      <DependentUpon>EntreeFeuilleDeTemps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FeuilleTempsGRH.resx">
       <DependentUpon>FeuilleTempsGRH.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +93,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="visualiserFeuilleDeTemps.resx">
+      <DependentUpon>visualiserFeuilleDeTemps.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

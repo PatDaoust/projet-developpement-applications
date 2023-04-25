@@ -13,8 +13,10 @@ namespace gestionRH
     public partial class LoginGRH : Form
     {
         public static int numUtilisateur;
-        bool loginReussi = false;
-        
+        bool loginAdminReussi = false;
+        bool loginNormalReussi = false;
+
+
         public LoginGRH()
         {
             InitializeComponent();
@@ -28,25 +30,30 @@ namespace gestionRH
                 numUtilisateur = Convert.ToInt32(txbNumUtilisateur.Text);
                 if (numUtilisateur > 1000)
                 {
-                    MessageBox.Show("Seul les administrateurs sont autorisés à se connecter", "Privilèges insuffisants", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    loginReussi = false;
+                    loginAdminReussi = false;
+                    loginNormalReussi= true;
                 }
                 else
                 {
-                    loginReussi = true;
+                    loginAdminReussi = true;
                 }
             }
             catch
             {
                 MessageBox.Show("Ce numéro d'employé n'est pas valide", "Numéro Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            if (loginReussi==true)
-            {
+            if (loginAdminReussi==true) {
                 FeuilleTempsGRH feuilleTemps = new FeuilleTempsGRH();
                 this.Hide();
                 feuilleTemps.ShowDialog();
                 this.Close();
+            } else if (loginNormalReussi==true) {
+                EntreeFeuilleDeTemps feuilleTemps = new EntreeFeuilleDeTemps();
+                this.Hide();
+                feuilleTemps.ShowDialog();
+                this.Close();
             }
+            
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)

@@ -58,3 +58,5 @@ C:\Users\catal\OneDrive\Desktop\Learning_to_Code\projet-developpement-applicatio
 C:\Users\catal\OneDrive\Desktop\Learning_to_Code\projet-developpement-applications\projet-developpement-applications\Scrum 2\gestionRH\bin\Debug\Newtonsoft.Json.dll
 C:\Users\catal\OneDrive\Desktop\Learning_to_Code\projet-developpement-applications\projet-developpement-applications\Scrum 2\gestionRH\bin\Debug\Newtonsoft.Json.xml
 C:\Users\catal\OneDrive\Desktop\Learning_to_Code\projet-developpement-applications\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\gestionRH.csproj.CopyComplete
+C:\Users\catal\OneDrive\Desktop\Learning_to_Code\projet-developpement-applications\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\gestionRH.EntreeFeuilleDeTemps.resources
+C:\Users\catal\OneDrive\Desktop\Learning_to_Code\projet-developpement-applications\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\gestionRH.visualiserFeuilleDeTemps.resources
