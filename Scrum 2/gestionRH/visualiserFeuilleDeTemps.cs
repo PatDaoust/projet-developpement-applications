@@ -32,6 +32,9 @@ namespace gestionRH {
 
         private void buttonSoumetre_Click(object sender, EventArgs e) {
             MessageBox.Show("not yet imlemented");
+            //if not validated, popup to warn
+            //if validated with errors, popup to warn
+            //allow user to select folder where to submit
         }
 
         private void richTextBoxVisualiser_TextChanged(object sender, EventArgs e) {
@@ -40,6 +43,8 @@ namespace gestionRH {
 
         private void buttonValider_Click(object sender, EventArgs e) {
             MessageBox.Show("not yet imlemented");
+            //call validate function on new feuille de temps
+            //display results
         }
     }
 }
