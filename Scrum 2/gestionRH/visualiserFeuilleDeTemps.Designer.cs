@@ -55,7 +55,7 @@
             this.buttonSoumetre.Name = "buttonSoumetre";
             this.buttonSoumetre.Size = new System.Drawing.Size(98, 23);
             this.buttonSoumetre.TabIndex = 2;
-            this.buttonSoumetre.Text = "soumetre";
+            this.buttonSoumetre.Text = "soumettre";
             this.buttonSoumetre.UseVisualStyleBackColor = true;
             this.buttonSoumetre.Click += new System.EventHandler(this.buttonSoumetre_Click);
             // 

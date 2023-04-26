@@ -34,13 +34,20 @@
             this.comboBoxJourDuMois = new System.Windows.Forms.ComboBox();
             this.comboBoxMois = new System.Windows.Forms.ComboBox();
             this.panelJour1 = new System.Windows.Forms.Panel();
+            this.comboBoxJours = new System.Windows.Forms.ComboBox();
             this.buttonAjouterJour1 = new System.Windows.Forms.Button();
             this.textBoxJour1Minutes = new System.Windows.Forms.TextBox();
             this.textBoxJour1Projet = new System.Windows.Forms.TextBox();
             this.buttonVisualiser = new System.Windows.Forms.Button();
-            this.comboBoxJours = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxSupprimerJour = new System.Windows.Forms.ComboBox();
+            this.buttonSupprimer = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxSuprimerProjet = new System.Windows.Forms.ComboBox();
             this.panelID.SuspendLayout();
             this.panelJour1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelnumeroEmployee
@@ -104,7 +111,7 @@
             // 
             // panelID
             // 
-            this.panelID.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.panelID.BackColor = System.Drawing.Color.Silver;
             this.panelID.Controls.Add(this.textBoxNumeroEmployee);
             this.panelID.Controls.Add(this.comboBoxJourDuMois);
             this.panelID.Controls.Add(this.comboBoxMois);
@@ -158,7 +165,7 @@
             // 
             // panelJour1
             // 
-            this.panelJour1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.panelJour1.BackColor = System.Drawing.Color.Silver;
             this.panelJour1.Controls.Add(this.comboBoxJours);
             this.panelJour1.Controls.Add(this.buttonAjouterJour1);
             this.panelJour1.Controls.Add(this.textBoxJour1Minutes);
@@ -171,11 +178,27 @@
             this.panelJour1.Size = new System.Drawing.Size(348, 194);
             this.panelJour1.TabIndex = 7;
             // 
+            // comboBoxJours
+            // 
+            this.comboBoxJours.FormattingEnabled = true;
+            this.comboBoxJours.Items.AddRange(new object[] {
+            "jour1",
+            "jour2",
+            "jour3",
+            "jour4",
+            "jour5",
+            "weekend1",
+            "weekend2"});
+            this.comboBoxJours.Location = new System.Drawing.Point(188, 28);
+            this.comboBoxJours.Name = "comboBoxJours";
+            this.comboBoxJours.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxJours.TabIndex = 11;
+            // 
             // buttonAjouterJour1
             // 
-            this.buttonAjouterJour1.Location = new System.Drawing.Point(127, 150);
+            this.buttonAjouterJour1.Location = new System.Drawing.Point(98, 150);
             this.buttonAjouterJour1.Name = "buttonAjouterJour1";
-            this.buttonAjouterJour1.Size = new System.Drawing.Size(75, 23);
+            this.buttonAjouterJour1.Size = new System.Drawing.Size(129, 23);
             this.buttonAjouterJour1.TabIndex = 10;
             this.buttonAjouterJour1.Text = "Ajouter";
             this.buttonAjouterJour1.UseVisualStyleBackColor = true;
@@ -200,7 +223,7 @@
             // 
             // buttonVisualiser
             // 
-            this.buttonVisualiser.Location = new System.Drawing.Point(149, 410);
+            this.buttonVisualiser.Location = new System.Drawing.Point(140, 612);
             this.buttonVisualiser.Name = "buttonVisualiser";
             this.buttonVisualiser.Size = new System.Drawing.Size(129, 64);
             this.buttonVisualiser.TabIndex = 8;
@@ -208,10 +231,23 @@
             this.buttonVisualiser.UseVisualStyleBackColor = true;
             this.buttonVisualiser.Click += new System.EventHandler(this.buttonVisualiser_Click);
             // 
-            // comboBoxJours
+            // panel1
             // 
-            this.comboBoxJours.FormattingEnabled = true;
-            this.comboBoxJours.Items.AddRange(new object[] {
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.comboBoxSuprimerProjet);
+            this.panel1.Controls.Add(this.comboBoxSupprimerJour);
+            this.panel1.Controls.Add(this.buttonSupprimer);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(42, 405);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(348, 170);
+            this.panel1.TabIndex = 9;
+            // 
+            // comboBoxSupprimerJour
+            // 
+            this.comboBoxSupprimerJour.FormattingEnabled = true;
+            this.comboBoxSupprimerJour.Items.AddRange(new object[] {
             "jour1",
             "jour2",
             "jour3",
@@ -219,16 +255,54 @@
             "jour5",
             "weekend1",
             "weekend2"});
-            this.comboBoxJours.Location = new System.Drawing.Point(188, 28);
-            this.comboBoxJours.Name = "comboBoxJours";
-            this.comboBoxJours.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxJours.TabIndex = 11;
+            this.comboBoxSupprimerJour.Location = new System.Drawing.Point(188, 28);
+            this.comboBoxSupprimerJour.Name = "comboBoxSupprimerJour";
+            this.comboBoxSupprimerJour.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxSupprimerJour.TabIndex = 11;
+            this.comboBoxSupprimerJour.SelectedIndexChanged += new System.EventHandler(this.comboBoxSupprimerJour_SelectedIndexChanged);
+            // 
+            // buttonSupprimer
+            // 
+            this.buttonSupprimer.Location = new System.Drawing.Point(98, 121);
+            this.buttonSupprimer.Name = "buttonSupprimer";
+            this.buttonSupprimer.Size = new System.Drawing.Size(129, 23);
+            this.buttonSupprimer.TabIndex = 10;
+            this.buttonSupprimer.Text = "Supprimer";
+            this.buttonSupprimer.UseVisualStyleBackColor = true;
+            this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Jour:  ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Projet: ";
+            // 
+            // comboBoxSuprimerProjet
+            // 
+            this.comboBoxSuprimerProjet.FormattingEnabled = true;
+            this.comboBoxSuprimerProjet.Location = new System.Drawing.Point(188, 67);
+            this.comboBoxSuprimerProjet.Name = "comboBoxSuprimerProjet";
+            this.comboBoxSuprimerProjet.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxSuprimerProjet.TabIndex = 12;
             // 
             // EntreeFeuilleDeTemps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 505);
+            this.ClientSize = new System.Drawing.Size(440, 711);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonVisualiser);
             this.Controls.Add(this.panelJour1);
             this.Controls.Add(this.panelID);
@@ -239,6 +313,8 @@
             this.panelID.PerformLayout();
             this.panelJour1.ResumeLayout(false);
             this.panelJour1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -261,5 +337,11 @@
         private System.Windows.Forms.Button buttonAjouterJour1;
         private System.Windows.Forms.Button buttonVisualiser;
         private System.Windows.Forms.ComboBox comboBoxJours;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox comboBoxSuprimerProjet;
+        private System.Windows.Forms.ComboBox comboBoxSupprimerJour;
+        private System.Windows.Forms.Button buttonSupprimer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

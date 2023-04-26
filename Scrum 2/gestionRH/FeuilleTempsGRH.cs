@@ -23,7 +23,7 @@ namespace gestionRH
         public int numUtilisateur = LoginGRH.numUtilisateur;
         string fichierSelection;
         string[] fichierOuvert;
-        JArray errors;
+        public JArray errors;
 
         public FeuilleTempsGRH()
         {

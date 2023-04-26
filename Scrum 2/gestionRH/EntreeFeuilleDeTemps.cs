@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using System.Text.RegularExpressions;
 
 namespace gestionRH {
     public partial class EntreeFeuilleDeTemps : Form {
@@ -283,7 +284,6 @@ namespace gestionRH {
             }
             feuilleDeTempsComplet += Environment.NewLine;
             feuilleDeTempsComplet +="], ";
-            //feuilleDeTempsComplet +=
             //fin
             feuilleDeTempsComplet += Environment.NewLine;
             feuilleDeTempsComplet += "}";
@@ -299,6 +299,107 @@ namespace gestionRH {
 
         private void EntreeFeuilleDeTemps_Load(object sender, EventArgs e) {
 
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e) {
+
+        }
+
+        private void buttonSupprimer_Click(object sender, EventArgs e) {
+            //read selected array from comboBoxSupprimerJour
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour1") {
+                //remove item from corresponding array/index
+                jour1.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour2") {
+                //remove item from corresponding array/index
+                jour2.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour3") {
+                //remove item from corresponding array/index
+                jour3.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour4") {
+                //remove item from corresponding array/index
+                jour4.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour5") {
+                //remove item from corresponding array/index
+                jour5.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "weekend1") {
+                //remove item from corresponding array/index
+                weekend1.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "weekend2") {
+                //remove item from corresponding array/index
+                weekend2.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+            }
+            comboBoxSuprimerProjet.SelectedIndex = -1;
+            comboBoxSuprimerProjet.Items.Clear();
+        }
+
+        private String getProjectNum(String input) {
+            Regex regex = new Regex(@"\d+");
+            Match match = regex.Match(input);
+
+            if (match.Success) {
+                string result = match.Value;
+                return result;
+            }
+            return "";
+        }
+
+        private void comboBoxSupprimerJour_SelectedIndexChanged(object sender, EventArgs e) {
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour1") {
+                comboBoxSuprimerProjet.Items.Clear();
+                for (int i = 0; i < jour1.Count; i++) {
+                    string projetNum = getProjectNum(jour1[i].ToString());
+                    comboBoxSuprimerProjet.Items.Add(projetNum);
+                }
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour2") {
+                comboBoxSuprimerProjet.Items.Clear();
+                for (int i = 0; i < jour2.Count; i++) {
+                    string projetNum = getProjectNum(jour2[i].ToString());
+                    comboBoxSuprimerProjet.Items.Add(i + ". " + projetNum);
+                }
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour3") {
+                comboBoxSuprimerProjet.Items.Clear();
+                for (int i = 0; i < jour3.Count; i++) {
+                    string projetNum = getProjectNum(jour3[i].ToString());
+                    comboBoxSuprimerProjet.Items.Add(i + ". " + projetNum);
+                }
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour4") {
+                comboBoxSuprimerProjet.Items.Clear();
+                for (int i = 0; i < jour4.Count; i++) {
+                    string projetNum = getProjectNum(jour4[i].ToString());
+                    comboBoxSuprimerProjet.Items.Add(i + ". " + projetNum);
+                }
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour5") {
+                comboBoxSuprimerProjet.Items.Clear();
+                for (int i = 0; i < jour5.Count; i++) {
+                    string projetNum = getProjectNum(jour5[i].ToString());
+                    comboBoxSuprimerProjet.Items.Add(i + ". " + projetNum);
+                }
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "weekend1") {
+                comboBoxSuprimerProjet.Items.Clear();
+                for (int i = 0; i < weekend1.Count; i++) {
+                    string projetNum = getProjectNum(weekend1[i].ToString());
+                    comboBoxSuprimerProjet.Items.Add(i + ". " + projetNum);
+                }
+            }
+            if (comboBoxSupprimerJour.SelectedItem.ToString() == "weekend2") {
+                comboBoxSuprimerProjet.Items.Clear();
+                for (int i = 0; i < weekend2.Count; i++) {
+                    string projetNum = getProjectNum(weekend2[i].ToString());
+                    comboBoxSuprimerProjet.Items.Add(i + ". " + projetNum);
+                }
+            }
         }
     }
 }
