@@ -20,7 +20,7 @@ namespace gestionRH
 {
     public partial class FeuilleTempsGRH : Form
     {
-        public int numUtilisateur = LoginGRH.numUtilisateur;
+        public int numUtilisateur = InterfaceAdmin.numUtilisateur;
         string fichierSelection;
         string[] fichierOuvert;
         public JArray errors;

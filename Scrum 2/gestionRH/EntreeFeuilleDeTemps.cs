@@ -26,7 +26,7 @@ namespace gestionRH {
         public static string feuilleDeTempsComplet = "";
         public EntreeFeuilleDeTemps() {
             InitializeComponent();
-            textBoxNumeroEmployee.Text = LoginGRH.numUtilisateur.ToString();
+            textBoxNumeroEmployee.Text = InterfaceAdmin.numUtilisateur.ToString();
         }
 
         private void label1_Click(object sender, EventArgs e) {
