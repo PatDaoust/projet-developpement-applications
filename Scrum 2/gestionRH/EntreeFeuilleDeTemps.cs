@@ -295,6 +295,7 @@ namespace gestionRH {
             //call new window
             visualiserFeuilleDeTemps feuilleTemps = new visualiserFeuilleDeTemps();
             feuilleTemps.ShowDialog();
+            
         }
 
         private void EntreeFeuilleDeTemps_Load(object sender, EventArgs e) {
