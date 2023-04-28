@@ -27,9 +27,6 @@ namespace gestionRH {
             richTextBoxVisualiser.Text = feuilleDeTempsComplet;
         }
 
-        private void label1_Click(object sender, EventArgs e) {
-
-        }
 
         private void buttonModifier_Click(object sender, EventArgs e) {
             EntreeFeuilleDeTemps.feuilleDeTempsComplet = "";
