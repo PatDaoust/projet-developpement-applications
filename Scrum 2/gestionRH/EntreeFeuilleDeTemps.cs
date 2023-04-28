@@ -24,6 +24,9 @@ namespace gestionRH {
         public static ArrayList weekend1 = new ArrayList();
         public static ArrayList weekend2 = new ArrayList();
         public static string feuilleDeTempsComplet = "";
+        public static object choixMois;
+        public static object choixJour;
+
         public EntreeFeuilleDeTemps() {
             InitializeComponent();
             textBoxNumeroEmployee.Text = InterfaceAdmin.numUtilisateur.ToString();
@@ -58,6 +61,16 @@ namespace gestionRH {
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            choixMois = comboBoxMois.SelectedItem;
+            if(comboBoxJourDuMois.SelectedItem == null)
+            {
+                comboBoxJourDuMois.Select(0,0);
+            }
+            else
+            {
+                choixJour = comboBoxJourDuMois.SelectedItem;
+            }
+            
             if (comboBoxMois.SelectedItem.ToString() == "Janvier") {
                 comboBoxJourDuMois.Items.Clear();
                 for (int i = 1; i <= 31; i++) {
@@ -202,8 +215,8 @@ namespace gestionRH {
 
         private int calculateDayOfYear() {
             {
-                string month = comboBoxMois.SelectedItem.ToString();
-                int day = Convert.ToInt32(comboBoxJourDuMois.SelectedItem.ToString());
+                string month = choixMois.ToString();
+                int day = Convert.ToInt32(choixJour.ToString());
 
                 int[] daysInMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
@@ -214,8 +227,8 @@ namespace gestionRH {
                 }
 
                 int dayOfYear = 0;
-
                 var frenchCultureInfo = new CultureInfo("fr-FR");
+
                 // Calculate day of the year
                 for (int i = 0; i < Array.IndexOf(frenchCultureInfo.DateTimeFormat.MonthNames, month.ToLower()); i++) {
                     dayOfYear += daysInMonth[i];
@@ -225,11 +238,20 @@ namespace gestionRH {
                 return dayOfYear;
             }
         }
+
         private void assembleFeuilleDeTemps() {
-            feuilleDeTempsComplet += "{" ;
+
+            feuilleDeTempsComplet = "{" ;
             feuilleDeTempsComplet += Environment.NewLine;
             feuilleDeTempsComplet += @" ""jourAnnee"": ";
-            feuilleDeTempsComplet += calculateDayOfYear();
+            if (choixMois.ToString() != null && choixJour.ToString() != null)
+            {
+                feuilleDeTempsComplet += calculateDayOfYear();
+            }
+            else
+            {
+                MessageBox.Show("Erreur mysterieuse");
+            }           
             feuilleDeTempsComplet += ",";
             feuilleDeTempsComplet += Environment.NewLine;
             feuilleDeTempsComplet +=   @" ""numeroEmploye"":";
@@ -408,6 +430,12 @@ namespace gestionRH {
                     comboBoxSuprimerProjet.Items.Add(i + ". " + projetNum);
                 }
             }
+        }
+
+        private void comboBoxJourDuMois_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            choixMois = comboBoxMois.SelectedItem;
+            choixJour = comboBoxJourDuMois.SelectedItem;
         }
     }
 }

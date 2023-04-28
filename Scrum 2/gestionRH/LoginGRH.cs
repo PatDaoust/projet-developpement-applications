@@ -32,7 +32,7 @@ namespace gestionRH
                 {
                     FeuilleTempsGRH feuilleTempsGRH = new FeuilleTempsGRH();
                     this.Hide();
-                    feuilleTempsGRH.ShowDialog();
+                    feuilleTempsGRH.Show();
                     this.Close();
                 }
                 else
