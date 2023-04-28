@@ -202,15 +202,22 @@ namespace gestionRH {
 
         private int calculateDayOfYear() {
             {
-                string month = comboBoxMois.SelectedText;
-                int day = 0;
-                int.TryParse(comboBoxJourDuMois.SelectedText, out day);
+                string month = comboBoxMois.SelectedItem.ToString();
+                int day = Convert.ToInt32(comboBoxJourDuMois.SelectedItem.ToString());
 
                 int[] daysInMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+                int year = DateTime.Now.Year;
+                if (DateTime.IsLeapYear(year))
+                {
+                    daysInMonth[1] = 29; // If it is a leap year, set February to have 29 days.
+                }
+
                 int dayOfYear = 0;
 
+                var frenchCultureInfo = new CultureInfo("fr-FR");
                 // Calculate day of the year
-                for (int i = 0; i < Array.IndexOf(CultureInfo.CurrentCulture.DateTimeFormat.MonthNames, month.ToLower()); i++) {
+                for (int i = 0; i < Array.IndexOf(frenchCultureInfo.DateTimeFormat.MonthNames, month.ToLower()); i++) {
                     dayOfYear += daysInMonth[i];
                 }
                 dayOfYear += day;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace gestionRH
 {
-    public class Administrateur : Employe
+    public class FeuilleTemps
     {
     }
 }

@@ -8,5 +8,9 @@ namespace gestionRH
 {
     public class Employe
     {
+        public Employe()
+        {
+
+        }
     }
 }
