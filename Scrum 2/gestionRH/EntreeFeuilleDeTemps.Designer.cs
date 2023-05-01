@@ -59,7 +59,6 @@
             this.labelnumeroEmployee.Size = new System.Drawing.Size(205, 25);
             this.labelnumeroEmployee.TabIndex = 0;
             this.labelnumeroEmployee.Text = "Numero D\'employe: ";
-            this.labelnumeroEmployee.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelMois
             // 
@@ -70,7 +69,6 @@
             this.labelMois.Size = new System.Drawing.Size(70, 25);
             this.labelMois.TabIndex = 1;
             this.labelMois.Text = "Mois: ";
-            this.labelMois.Click += new System.EventHandler(this.label2_Click);
             // 
             // labelJourDuMois
             // 
@@ -81,7 +79,6 @@
             this.labelJourDuMois.Size = new System.Drawing.Size(147, 25);
             this.labelJourDuMois.TabIndex = 2;
             this.labelJourDuMois.Text = "Jour du mois: ";
-            this.labelJourDuMois.Click += new System.EventHandler(this.label3_Click);
             // 
             // labelJour1
             // 
@@ -92,7 +89,6 @@
             this.labelJour1.Size = new System.Drawing.Size(72, 25);
             this.labelJour1.TabIndex = 3;
             this.labelJour1.Text = "Jour:  ";
-            this.labelJour1.Click += new System.EventHandler(this.label4_Click);
             // 
             // labelJour1Projet
             // 
@@ -103,7 +99,6 @@
             this.labelJour1Projet.Size = new System.Drawing.Size(80, 25);
             this.labelJour1Projet.TabIndex = 4;
             this.labelJour1Projet.Text = "Projet: ";
-            this.labelJour1Projet.Click += new System.EventHandler(this.label5_Click);
             // 
             // labelJour1Minutes
             // 
@@ -129,7 +124,6 @@
             this.panelID.Name = "panelID";
             this.panelID.Size = new System.Drawing.Size(522, 192);
             this.panelID.TabIndex = 6;
-            this.panelID.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // textBoxNumeroEmployee
             // 
@@ -139,7 +133,6 @@
             this.textBoxNumeroEmployee.Name = "textBoxNumeroEmployee";
             this.textBoxNumeroEmployee.Size = new System.Drawing.Size(180, 31);
             this.textBoxNumeroEmployee.TabIndex = 8;
-            this.textBoxNumeroEmployee.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBoxNumeroEmployee.Leave += new System.EventHandler(this.textBoxNumeroEmployee_Leave);
             // 
             // comboBoxJourDuMois
