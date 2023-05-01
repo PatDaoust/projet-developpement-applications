@@ -26,14 +26,20 @@ namespace gestionRH {
         public static string feuilleDeTempsComplet = "";
         public static object choixMois;
         public static object choixJour;
-        Employe employeLogin;
+        public Employe employeLogin;
         public int numUtilisateur;
 
         public EntreeFeuilleDeTemps(Employe empLogin) {
             InitializeComponent();
             employeLogin = empLogin;
-            employeLogin.feuilleTemps.jour1 = jour1;
             numUtilisateur = employeLogin.numEmploye;
+            employeLogin.feuilleTemps.jour1 = jour1;
+            employeLogin.feuilleTemps.jour1 = jour2;
+            employeLogin.feuilleTemps.jour1 = jour3;
+            employeLogin.feuilleTemps.jour1 = jour4;
+            employeLogin.feuilleTemps.jour1 = jour5;
+            employeLogin.feuilleTemps.weekend1 = weekend1;
+            employeLogin.feuilleTemps.weekend2 = weekend2;
             textBoxNumeroEmployee.Text = numUtilisateur.ToString();
         }
 

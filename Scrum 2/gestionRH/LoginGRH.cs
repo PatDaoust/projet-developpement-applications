@@ -14,13 +14,14 @@ namespace gestionRH
     {
         public int numUtilisateur;
         public String motPasse = "";
-        Employe employeLogin;
+        public Employe employeLogin;
 
-        public LoginGRH(object empLogin)
+        public LoginGRH(Employe empLogin)
         {
-            employeLogin = (Employe)empLogin;
-            numUtilisateur = employeLogin.numEmploye;
             InitializeComponent();
+            employeLogin = empLogin;
+            numUtilisateur = employeLogin.numEmploye;
+            MessageBox.Show(numUtilisateur.ToString());
             txbNumUtilisateur.Text = numUtilisateur.ToString();            
         }
 

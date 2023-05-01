@@ -28,8 +28,10 @@ namespace gestionRH
                 numUtilisateur = Convert.ToInt32(txbLoginUtilisateur.Text);
                 if (numUtilisateur < 1000)
                 {
-                    LoginGRH loginGRH = new LoginGRH(empLogin);
+                    
                     this.Hide();
+                    empLogin.numEmploye = numUtilisateur;
+                    LoginGRH loginGRH = new LoginGRH(empLogin);
                     loginGRH.ShowDialog();
                     this.Show();
                 }
@@ -52,17 +54,29 @@ namespace gestionRH
             try
             {
                 numUtilisateur = Convert.ToInt32(txbLoginUtilisateur.Text);
-                if (numUtilisateur >= 1000)
-                {
-                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
+                if (numUtilisateur >= 1000 && numUtilisateur < 2000)
+                {                    
                     this.Hide();
+                    empLogin.numEmploye = numUtilisateur;
+                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
+                    MessageBox.Show("Vous êtes connecté en tant qu'employé de production", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    entreeFeuilleDeTemps.ShowDialog();
+                    this.Show();
+                }else if (numUtilisateur >= 2000)
+                {
+                    this.Hide();
+                    empLogin.numEmploye = numUtilisateur;
+                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
+                    MessageBox.Show("Vous êtes connecté en tant qu'employé d'exploitation", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     entreeFeuilleDeTemps.ShowDialog();
                     this.Show();
                 }
                 else if (numUtilisateur > 0 && numUtilisateur < 1000)
                 {
-                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
                     this.Hide();
+                    empLogin.numEmploye = numUtilisateur;
+                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
+                    MessageBox.Show("Vous êtes connecté en tant qu'administrateur", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     entreeFeuilleDeTemps.ShowDialog();
                     this.Show();
                 }
