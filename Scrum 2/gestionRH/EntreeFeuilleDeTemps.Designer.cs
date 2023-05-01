@@ -133,6 +133,7 @@
             // 
             // textBoxNumeroEmployee
             // 
+            this.textBoxNumeroEmployee.Enabled = false;
             this.textBoxNumeroEmployee.Location = new System.Drawing.Point(282, 30);
             this.textBoxNumeroEmployee.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxNumeroEmployee.Name = "textBoxNumeroEmployee";
@@ -324,12 +325,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 1111);
+            this.ClientSize = new System.Drawing.Size(660, 1279);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonVisualiser);
             this.Controls.Add(this.panelJour1);
             this.Controls.Add(this.panelID);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(686, 1350);
             this.Name = "EntreeFeuilleDeTemps";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EntreeFeuilleDeTemps";

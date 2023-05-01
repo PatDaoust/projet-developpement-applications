@@ -20,14 +20,17 @@ namespace gestionRH
 {
     public partial class FeuilleTempsGRH : Form
     {
-        public int numUtilisateur = InterfaceMenu.numUtilisateur;
+        public int numUtilisateur;
         string fichierSelection;
         string[] fichierOuvert;
         public JArray errors;
+        Employe employeLogin;
 
-        public FeuilleTempsGRH()
+        public FeuilleTempsGRH(Employe empLogin)
         {
             InitializeComponent();
+            employeLogin = empLogin;
+            numUtilisateur = employeLogin.numEmploye;
             txbNumUtilisateur.Text = numUtilisateur.ToString();
         }
 

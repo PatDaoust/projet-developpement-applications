@@ -12,12 +12,14 @@ namespace gestionRH
 {
     public partial class LoginGRH : Form
     {
-        public int numUtilisateur = InterfaceMenu.numUtilisateur;
+        public int numUtilisateur;
         public String motPasse = "";
+        Employe employeLogin;
 
-
-        public LoginGRH()
+        public LoginGRH(object empLogin)
         {
+            employeLogin = (Employe)empLogin;
+            numUtilisateur = employeLogin.numEmploye;
             InitializeComponent();
             txbNumUtilisateur.Text = numUtilisateur.ToString();            
         }
@@ -30,9 +32,9 @@ namespace gestionRH
                 motPasse = txbMotPasse.Text;
                 if (motPasse.Equals("admin"))
                 {
-                    FeuilleTempsGRH feuilleTempsGRH = new FeuilleTempsGRH();
+                    FeuilleTempsGRH feuilleTempsGRH = new FeuilleTempsGRH(employeLogin);
                     this.Hide();
-                    feuilleTempsGRH.Show();
+                    feuilleTempsGRH.ShowDialog();
                     this.Close();
                 }
                 else

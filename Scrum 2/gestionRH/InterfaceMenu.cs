@@ -12,7 +12,6 @@ namespace gestionRH
 {
     public partial class InterfaceMenu : Form
     {
-
         public static int numUtilisateur;
 
         public InterfaceMenu()
@@ -22,12 +21,14 @@ namespace gestionRH
 
         private void btnMenuAdmin_Click(object sender, EventArgs e)
         {
+            FeuilleTemps feuilleTemps = new FeuilleTemps();
+            Employe empLogin = new Employe(numUtilisateur, feuilleTemps);
             try
             {
                 numUtilisateur = Convert.ToInt32(txbLoginUtilisateur.Text);
                 if (numUtilisateur < 1000)
                 {
-                    LoginGRH loginGRH = new LoginGRH();
+                    LoginGRH loginGRH = new LoginGRH(empLogin);
                     this.Hide();
                     loginGRH.ShowDialog();
                     this.Show();
@@ -44,21 +45,23 @@ namespace gestionRH
 
         }
 
-        private void btnMenuEmploye_Click(object sender, EventArgs e)
+        public void btnMenuEmploye_Click(object sender, EventArgs e)
         {
+            FeuilleTemps feuilleTemps = new FeuilleTemps();
+            Employe empLogin = new Employe(numUtilisateur, feuilleTemps);
             try
             {
                 numUtilisateur = Convert.ToInt32(txbLoginUtilisateur.Text);
                 if (numUtilisateur >= 1000)
                 {
-                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps();
+                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
                     this.Hide();
                     entreeFeuilleDeTemps.ShowDialog();
                     this.Show();
                 }
                 else if (numUtilisateur > 0 && numUtilisateur < 1000)
                 {
-                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps();
+                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
                     this.Hide();
                     entreeFeuilleDeTemps.ShowDialog();
                     this.Show();

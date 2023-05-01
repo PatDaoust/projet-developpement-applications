@@ -14,16 +14,21 @@ using File = System.IO.File;
 namespace gestionRH {
     public partial class visualiserFeuilleDeTemps : Form {
 
-        FeuilleTempsGRH aFeuilleTempsGRH = new FeuilleTempsGRH();
-        public int numUtilisateur = InterfaceMenu.numUtilisateur;
+        Employe employeLogin;
+        FeuilleTempsGRH aFeuilleTempsGRH;
+        public int numUtilisateur;
         public ArrayList feuilleJour1 = EntreeFeuilleDeTemps.jour1;
         public String feuilleDeTempsComplet = EntreeFeuilleDeTemps.feuilleDeTempsComplet;
         //JArray errors;
         Boolean isValidated = false;
         Boolean isErrorFree = false;
 
-        public visualiserFeuilleDeTemps() {
+        public visualiserFeuilleDeTemps(Employe empLogin) {
             InitializeComponent();
+            employeLogin = empLogin;
+            numUtilisateur = employeLogin.numEmploye;
+
+            aFeuilleTempsGRH = new FeuilleTempsGRH(empLogin);
             richTextBoxVisualiser.Text = feuilleDeTempsComplet;
         }
 

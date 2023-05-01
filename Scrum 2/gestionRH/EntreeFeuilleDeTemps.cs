@@ -26,10 +26,14 @@ namespace gestionRH {
         public static string feuilleDeTempsComplet = "";
         public static object choixMois;
         public static object choixJour;
+        Employe employeLogin;
+        public int numUtilisateur;
 
-        public EntreeFeuilleDeTemps() {
+        public EntreeFeuilleDeTemps(Employe empLogin) {
             InitializeComponent();
-            textBoxNumeroEmployee.Text = InterfaceMenu.numUtilisateur.ToString();
+        employeLogin = empLogin;
+        numUtilisateur = employeLogin.numEmploye;
+            textBoxNumeroEmployee.Text = numUtilisateur.ToString();
         }
 
         private void label1_Click(object sender, EventArgs e) {
@@ -322,7 +326,7 @@ namespace gestionRH {
             //call function to put together feuille de temp
             assembleFeuilleDeTemps();
             //call new window
-            visualiserFeuilleDeTemps feuilleTemps = new visualiserFeuilleDeTemps();
+            visualiserFeuilleDeTemps feuilleTemps = new visualiserFeuilleDeTemps(employeLogin);
             feuilleTemps.ShowDialog();
             
         }
