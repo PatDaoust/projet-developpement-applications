@@ -1,6 +1,6 @@
 ﻿namespace gestionRH
 {
-    partial class InterfaceAdmin
+    partial class InterfaceMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InterfaceAdmin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InterfaceMenu));
             this.btnMenuEmploye = new System.Windows.Forms.Button();
             this.btnMenuAdmin = new System.Windows.Forms.Button();
             this.txbLoginUtilisateur = new System.Windows.Forms.TextBox();

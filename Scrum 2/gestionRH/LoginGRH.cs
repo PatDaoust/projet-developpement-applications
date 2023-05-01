@@ -12,7 +12,7 @@ namespace gestionRH
 {
     public partial class LoginGRH : Form
     {
-        public int numUtilisateur = InterfaceAdmin.numUtilisateur;
+        public int numUtilisateur = InterfaceMenu.numUtilisateur;
         public String motPasse = "";
 
 

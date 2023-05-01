@@ -63,11 +63,11 @@
     <Compile Include="FeuilleTempsGRH.Designer.cs">
       <DependentUpon>FeuilleTempsGRH.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfaceAdmin.cs">
+    <Compile Include="InterfaceMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InterfaceAdmin.designer.cs">
-      <DependentUpon>InterfaceAdmin.cs</DependentUpon>
+    <Compile Include="InterfaceMenu.designer.cs">
+      <DependentUpon>InterfaceMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginGRH.cs">
       <SubType>Form</SubType>
@@ -89,8 +89,8 @@
     <EmbeddedResource Include="FeuilleTempsGRH.resx">
       <DependentUpon>FeuilleTempsGRH.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InterfaceAdmin.resx">
-      <DependentUpon>InterfaceAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="InterfaceMenu.resx">
+      <DependentUpon>InterfaceMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginGRH.resx">
       <DependentUpon>LoginGRH.cs</DependentUpon>

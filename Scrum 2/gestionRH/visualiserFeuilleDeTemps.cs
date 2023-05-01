@@ -15,7 +15,7 @@ namespace gestionRH {
     public partial class visualiserFeuilleDeTemps : Form {
 
         FeuilleTempsGRH aFeuilleTempsGRH = new FeuilleTempsGRH();
-        public int numUtilisateur = InterfaceAdmin.numUtilisateur;
+        public int numUtilisateur = InterfaceMenu.numUtilisateur;
         public ArrayList feuilleJour1 = EntreeFeuilleDeTemps.jour1;
         public String feuilleDeTempsComplet = EntreeFeuilleDeTemps.feuilleDeTempsComplet;
         //JArray errors;

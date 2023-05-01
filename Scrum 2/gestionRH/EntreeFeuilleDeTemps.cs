@@ -29,7 +29,7 @@ namespace gestionRH {
 
         public EntreeFeuilleDeTemps() {
             InitializeComponent();
-            textBoxNumeroEmployee.Text = InterfaceAdmin.numUtilisateur.ToString();
+            textBoxNumeroEmployee.Text = InterfaceMenu.numUtilisateur.ToString();
         }
 
         private void label1_Click(object sender, EventArgs e) {

@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace gestionRH
 {
-    public partial class InterfaceAdmin : Form
+    public partial class InterfaceMenu : Form
     {
 
         public static int numUtilisateur;
 
-        public InterfaceAdmin()
+        public InterfaceMenu()
         {
             InitializeComponent();
         }

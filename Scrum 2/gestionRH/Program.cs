@@ -16,7 +16,7 @@ namespace gestionRH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InterfaceAdmin());
+            Application.Run(new InterfaceMenu());
         }
     }
 }
