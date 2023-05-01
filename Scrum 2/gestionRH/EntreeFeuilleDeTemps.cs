@@ -173,8 +173,6 @@ namespace gestionRH {
                 if (comboBoxJours.SelectedItem.ToString() == "jour1")
                 {
                     jour1.Add(entry);
-
-                    MessageBox.Show(employeLogin.feuilleTemps.jour1[0].ToString());
                 }
                 if (comboBoxJours.SelectedItem.ToString() == "jour2")
                 {
