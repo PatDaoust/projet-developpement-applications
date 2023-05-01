@@ -173,6 +173,8 @@ namespace gestionRH {
                 if (comboBoxJours.SelectedItem.ToString() == "jour1")
                 {
                     jour1.Add(entry);
+
+                    MessageBox.Show(employeLogin.feuilleTemps.jour1[0].ToString());
                 }
                 if (comboBoxJours.SelectedItem.ToString() == "jour2")
                 {
@@ -235,13 +237,13 @@ namespace gestionRH {
             feuilleDeTempsComplet = "{" ;
             feuilleDeTempsComplet += Environment.NewLine;
             feuilleDeTempsComplet += @" ""jourAnnee"": ";
-            if (choixMois.ToString() != null && choixJour.ToString() != null)
+            if (choixMois != null && choixJour != null)
             {
                 feuilleDeTempsComplet += calculateDayOfYear();
             }
             else
             {
-                MessageBox.Show("Erreur mysterieuse");
+                MessageBox.Show("Date absente, veuiller réviser");
             }           
             feuilleDeTempsComplet += ",";
             feuilleDeTempsComplet += Environment.NewLine;
