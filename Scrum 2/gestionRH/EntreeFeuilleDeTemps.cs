@@ -172,33 +172,52 @@ namespace gestionRH {
                 //add to correct arraylist
                 if (comboBoxJours.SelectedItem.ToString() == "jour1")
                 {
-                    jour1.Add(entry);
-
-                    MessageBox.Show(employeLogin.feuilleTemps.jour1[0].ToString());
+                    if (textBoxJour1Projet.Text != "" && textBoxJour1Minutes.Text != "")
+                    {
+                        jour1.Add(entry);
+                    }                    
                 }
                 if (comboBoxJours.SelectedItem.ToString() == "jour2")
                 {
-                    jour2.Add(entry);
+                    if (textBoxJour1Projet.Text != "" && textBoxJour1Minutes.Text != "")
+                    {
+                        jour2.Add(entry);
+                    }
                 }
                 if (comboBoxJours.SelectedItem.ToString() == "jour3")
                 {
-                    jour3.Add(entry);
+                    if (textBoxJour1Projet.Text != "" && textBoxJour1Minutes.Text != "")
+                    {
+                        jour3.Add(entry);
+                    }
                 }
                 if (comboBoxJours.SelectedItem.ToString() == "jour4")
                 {
-                    jour4.Add(entry);
+                    if (textBoxJour1Projet.Text != "" && textBoxJour1Minutes.Text != "")
+                    {
+                        jour4.Add(entry);
+                    }
                 }
                 if (comboBoxJours.SelectedItem.ToString() == "jour5")
                 {
-                    jour5.Add(entry);
+                    if (textBoxJour1Projet.Text != "" && textBoxJour1Minutes.Text != "")
+                    {
+                        jour5.Add(entry);
+                    }
                 }
                 if (comboBoxJours.SelectedItem.ToString() == "weekend1")
                 {
-                    weekend1.Add(entry);
+                    if (textBoxJour1Projet.Text != "" && textBoxJour1Minutes.Text != "")
+                    {
+                        weekend1.Add(entry);
+                    }
                 }
                 if (comboBoxJours.SelectedItem.ToString() == "weekend2")
                 {
-                    weekend2.Add(entry);
+                    if (textBoxJour1Projet.Text != "" && textBoxJour1Minutes.Text != "")
+                    {
+                        weekend2.Add(entry);
+                    }
                 }
             }
             //clear textboxes
