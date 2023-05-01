@@ -77,5 +77,5 @@ A:\Repositories\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\ge
 A:\Repositories\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\gestionRH.csproj.CopyComplete
 A:\Repositories\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\gestionRH.exe
 A:\Repositories\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\gestionRH.pdb
-C:\Users\catal\OneDrive\Desktop\Learning_to_Code\projet-developpement-applications\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\gestionRH.InterfaceAdmin.resources
 A:\Repositories\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\gestionRH.InterfaceMenu.resources
+C:\Users\catal\OneDrive\Desktop\Learning_to_Code\projet-developpement-applications\projet-developpement-applications\Scrum 2\gestionRH\obj\Debug\gestionRH.InterfaceMenu.resources

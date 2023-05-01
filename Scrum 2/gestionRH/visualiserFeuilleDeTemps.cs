@@ -46,7 +46,7 @@ namespace gestionRH {
             string outputFilePath = saveFileDialog1.FileName;
             // Écriture du fichier JSON de sortie
             if (outputFilePath != "") {
-                File.WriteAllText(outputFilePath, aFeuilleTempsGRH.errors.ToString());
+                File.WriteAllText(outputFilePath, feuilleDeTempsComplet);
             }
         }
 
