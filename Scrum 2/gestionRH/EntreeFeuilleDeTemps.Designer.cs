@@ -329,7 +329,6 @@
             this.Name = "EntreeFeuilleDeTemps";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EntreeFeuilleDeTemps";
-            this.Load += new System.EventHandler(this.EntreeFeuilleDeTemps_Load);
             this.panelID.ResumeLayout(false);
             this.panelID.PerformLayout();
             this.panelJour1.ResumeLayout(false);
