@@ -32,6 +32,7 @@ namespace gestionRH {
         public EntreeFeuilleDeTemps(Employe empLogin) {
             InitializeComponent();
             employeLogin = empLogin;
+            employeLogin.feuilleTemps.jour1 = jour1;
             numUtilisateur = employeLogin.numEmploye;
             textBoxNumeroEmployee.Text = numUtilisateur.ToString();
         }
@@ -162,27 +163,43 @@ namespace gestionRH {
             entry+= ligneProjet + Environment.NewLine + ligneMinutes;
             entry+= Environment.NewLine;
             entry+= "},";
-            //add to correct arraylist
-            if (comboBoxJours.SelectedItem.ToString() == "jour1") {
-                jour1.Add(entry);
+            if (comboBoxJours.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez remplir tous les champs", "Champs manquants", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            if (comboBoxJours.SelectedItem.ToString() == "jour2") {
-                jour2.Add(entry);
-            }
-            if (comboBoxJours.SelectedItem.ToString() == "jour3") {
-                jour3.Add(entry);
-            }
-            if (comboBoxJours.SelectedItem.ToString() == "jour4") {
-                jour4.Add(entry);
-            }
-            if (comboBoxJours.SelectedItem.ToString() == "jour5") {
-                jour5.Add(entry);
-            }
-            if (comboBoxJours.SelectedItem.ToString() == "weekend1") {
-                weekend1.Add(entry);
-            }
-            if (comboBoxJours.SelectedItem.ToString() == "weekend2") {
-                weekend2.Add(entry);
+            else
+            {
+                //add to correct arraylist
+                if (comboBoxJours.SelectedItem.ToString() == "jour1")
+                {
+                    jour1.Add(entry);
+
+                    MessageBox.Show(employeLogin.feuilleTemps.jour1[0].ToString());
+                }
+                if (comboBoxJours.SelectedItem.ToString() == "jour2")
+                {
+                    jour2.Add(entry);
+                }
+                if (comboBoxJours.SelectedItem.ToString() == "jour3")
+                {
+                    jour3.Add(entry);
+                }
+                if (comboBoxJours.SelectedItem.ToString() == "jour4")
+                {
+                    jour4.Add(entry);
+                }
+                if (comboBoxJours.SelectedItem.ToString() == "jour5")
+                {
+                    jour5.Add(entry);
+                }
+                if (comboBoxJours.SelectedItem.ToString() == "weekend1")
+                {
+                    weekend1.Add(entry);
+                }
+                if (comboBoxJours.SelectedItem.ToString() == "weekend2")
+                {
+                    weekend2.Add(entry);
+                }
             }
             //clear textboxes
             textBoxJour1Projet.Text = "";
@@ -311,40 +328,54 @@ namespace gestionRH {
 
         }
 
-        private void buttonSupprimer_Click(object sender, EventArgs e) {
-            //read selected array from comboBoxSupprimerJour
-            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour1") {
-                //remove item from corresponding array/index
-                jour1.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+        private void buttonSupprimer_Click(object sender, EventArgs e)
+        {
+            if (comboBoxSupprimerJour.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez remplir tous les champs", "Champs manquants", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour2") {
-                //remove item from corresponding array/index
-                jour2.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+            else
+            {
+                //read selected array from comboBoxSupprimerJour
+                if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour1")
+                {
+                    //remove item from corresponding array/index
+                    jour1.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+                }
+                if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour2")
+                {
+                    //remove item from corresponding array/index
+                    jour2.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+                }
+                if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour3")
+                {
+                    //remove item from corresponding array/index
+                    jour3.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+                }
+                if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour4")
+                {
+                    //remove item from corresponding array/index
+                    jour4.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+                }
+                if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour5")
+                {
+                    //remove item from corresponding array/index
+                    jour5.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+                }
+                if (comboBoxSupprimerJour.SelectedItem.ToString() == "weekend1")
+                {
+                    //remove item from corresponding array/index
+                    weekend1.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+                }
+                if (comboBoxSupprimerJour.SelectedItem.ToString() == "weekend2")
+                {
+                    //remove item from corresponding array/index
+                    weekend2.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
+                }
+                comboBoxSuprimerProjet.SelectedIndex = -1;
+                comboBoxSuprimerProjet.Items.Clear();
             }
-            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour3") {
-                //remove item from corresponding array/index
-                jour3.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
-            }
-            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour4") {
-                //remove item from corresponding array/index
-                jour4.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
-            }
-            if (comboBoxSupprimerJour.SelectedItem.ToString() == "jour5") {
-                //remove item from corresponding array/index
-                jour5.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
-            }
-            if (comboBoxSupprimerJour.SelectedItem.ToString() == "weekend1") {
-                //remove item from corresponding array/index
-                weekend1.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
-            }
-            if (comboBoxSupprimerJour.SelectedItem.ToString() == "weekend2") {
-                //remove item from corresponding array/index
-                weekend2.RemoveAt(comboBoxSuprimerProjet.SelectedIndex);
-            }
-            comboBoxSuprimerProjet.SelectedIndex = -1;
-            comboBoxSuprimerProjet.Items.Clear();
         }
-
         private String getProjectNum(String input) {
             Regex regex = new Regex(@"\d+");
             Match match = regex.Match(input);
