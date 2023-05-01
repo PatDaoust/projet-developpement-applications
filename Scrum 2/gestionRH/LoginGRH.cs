@@ -21,7 +21,6 @@ namespace gestionRH
             InitializeComponent();
             employeLogin = empLogin;
             numUtilisateur = employeLogin.numEmploye;
-            MessageBox.Show(numUtilisateur.ToString());
             txbNumUtilisateur.Text = numUtilisateur.ToString();            
         }
 
