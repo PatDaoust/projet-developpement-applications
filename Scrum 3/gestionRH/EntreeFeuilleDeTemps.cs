@@ -461,5 +461,13 @@ namespace gestionRH {
             choixMois = comboBoxMois.SelectedItem;
             choixJour = comboBoxJourDuMois.SelectedItem;
         }
+
+        private void buttonAutofill_Click(object sender, EventArgs e) {
+            //take jour1, pour remplir jour2 a jour5 
+            jour2 = jour1;
+            jour3 = jour1;
+            jour4 = jour1;
+            jour5 = jour1;
+        }
     }
 }

@@ -63,8 +63,10 @@ namespace gestionRH
             if (numeroEmploye<1000) {
                 foreach (JArray day in timesheetData) {
                     foreach (JObject entry in day) {
-                        if ((int)entry["projet"] < (900)) {
+                        if ((int)entry["projet"] < (900) && (int)entry["projet"]!=997 && (int)entry["projet"]!=996) {
                             totalMinutes += (int)entry["minutes"];
+                        } else if ((int)entry["projet"]==997 || (int)entry["projet"]==996) {
+                            totalMinutes += (int)entry["minutes"]/2;
                         }
                     }
                 }
@@ -80,8 +82,10 @@ namespace gestionRH
             if (numeroEmploye>=1000 && numeroEmploye<1000) {
                 foreach (JArray day in timesheetData) {
                     foreach (JObject entry in day) {
-                        if ((int)entry["projet"] < (900)) {
+                        if ((int)entry["projet"] < (900) && (int)entry["projet"]!=997 && (int)entry["projet"]!=996) {
                             totalMinutes += (int)entry["minutes"];
+                        } else if ((int)entry["projet"]==997 || (int)entry["projet"]==996) {
+                            totalMinutes += (int)entry["minutes"]/2;
                         }
                     }
                 }
@@ -98,8 +102,10 @@ namespace gestionRH
             if (numeroEmploye>=2000) {
                 foreach (JArray day in timesheetData) {
                     foreach (JObject entry in day) {
-                        if ((int)entry["projet"] < (900)) {
+                        if ((int)entry["projet"] < (900) && (int)entry["projet"]!=997 && (int)entry["projet"]!=996) {
                             totalMinutes += (int)entry["minutes"];
+                        } else if ((int)entry["projet"]==997 || (int)entry["projet"]==996) {
+                            totalMinutes += (int)entry["minutes"]/2;
                         }
                     }
                 }
@@ -115,8 +121,10 @@ namespace gestionRH
             int totalMinutes = 0;
             foreach (JArray day in timesheetData) {
                 foreach (JObject entry in day) {
-                    if ((int)entry["projet"] < (900)) {
+                    if ((int)entry["projet"] < (900) && (int)entry["projet"]!=997 && (int)entry["projet"]!=996) {
                         totalMinutes += (int)entry["minutes"];
+                    } else if ((int)entry["projet"]==997 || (int)entry["projet"]==996) {
+                        totalMinutes += (int)entry["minutes"]/2;
                     }
                 }
             }
@@ -152,8 +160,10 @@ namespace gestionRH
                 totalMinutes = 0;
                 foreach (JArray day in timesheetJours) {
                     foreach (JObject entry in day) {
-                        if ((int)entry["projet"] < (900)) {
+                        if ((int)entry["projet"] < (900) && (int)entry["projet"]!=997 && (int)entry["projet"]!=996) {
                             totalMinutes += (int)entry["minutes"];
+                        } else if ((int)entry["projet"]==997 || (int)entry["projet"]==996) {
+                            totalMinutes += (int)entry["minutes"]/2;
                         }
                     }
                 }
@@ -167,8 +177,10 @@ namespace gestionRH
             if (numeroEmploye<1000) {
                 foreach (JArray day in timesheetJours) {
                     foreach (JObject entry in day) {
-                        if ((int)entry["projet"] < (900)) {
+                        if ((int)entry["projet"] < (900) && (int)entry["projet"]!=997 && (int)entry["projet"]!=996) {
                             totalMinutes += (int)entry["minutes"];
+                        } else if ((int)entry["projet"]==997 || (int)entry["projet"]==996) {
+                            totalMinutes += (int)entry["minutes"]/2;
                         }
                     }
                 }
@@ -248,8 +260,43 @@ namespace gestionRH
                 }
             }
         }
-            
-            public Boolean isHoliday(int dayofYear) {
+
+        public void regleParental(JArray timesheetWeekend) {
+            //une semaine de congé parental
+            // le code de projet 995 à tous les jours, excluant le week-end
+            //if weekend, add error
+            foreach (JArray day in timesheetWeekend) {
+                foreach (JObject entry in day) {
+                    if ((int)entry["projet"] == (995)) {
+                        errors.Add("L'employé a pris un congé parental la fin de semaine");
+                    }
+                }
+            }
+        }
+
+        public void regleTransport(JArray timesheetJours) {
+            //peut entrer le code 997 pour un maximum de 1 heure par jour
+            //ou
+            //peut entrer le code 996 pour un maximum de 1 heure par jour
+            int minutesTransport = 0 ;
+            foreach (JArray day in timesheetJours) {
+                foreach (JObject entry in day) {
+                    if ((int)entry["projet"] == (997)) {
+                        minutesTransport+=(int)entry["minutes"]; 
+                    }
+                    if ((int)entry["projet"] == (996)) {
+                        minutesTransport+=(int)entry["minutes"];
+                    }
+                }
+                if (minutesTransport>60) {
+                    errors.Add("L'employé a pris plus qu'un heure de transport dans un jour");
+                }
+                minutesTransport = 0;
+            }  
+        }
+
+
+        public Boolean isHoliday(int dayofYear) {
             switch (dayofYear) {
                 case 1:
                     //Jour de l'An 
@@ -343,6 +390,8 @@ namespace gestionRH
             regle24h(timesheetData);
             regleMaladie(timesheetJours, timesheetWeekend);
             regleFerie(timesheetJours, timesheetWeekend, dayofYearMonday);
+            regleParental(timesheetWeekend);
+            regleTransport(timesheetJours);
 
         }
 
