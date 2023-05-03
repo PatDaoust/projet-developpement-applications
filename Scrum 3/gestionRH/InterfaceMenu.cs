@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,12 @@ namespace gestionRH
     public partial class InterfaceMenu : Form
     {
         public static int numUtilisateur;
+        List<EmployeModel> employeList = new List<EmployeModel>();
 
         public InterfaceMenu()
         {
             InitializeComponent();
+            employeList = SqliteDataAccess.LoadEmploye();
         }
 
         private void btnMenuAdmin_Click(object sender, EventArgs e)
@@ -85,6 +88,11 @@ namespace gestionRH
             {
                 MessageBox.Show("Ce numéro d'employé n'est pas valide", "Numéro Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(employeList[0].FullName.ToString());
         }
     }
 }

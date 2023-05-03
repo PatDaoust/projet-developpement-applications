@@ -33,6 +33,7 @@
             this.btnMenuAdmin = new System.Windows.Forms.Button();
             this.txbLoginUtilisateur = new System.Windows.Forms.TextBox();
             this.lblNumEmploye = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMenuEmploye
@@ -52,7 +53,7 @@
             this.btnMenuAdmin.Margin = new System.Windows.Forms.Padding(6);
             this.btnMenuAdmin.Name = "btnMenuAdmin";
             this.btnMenuAdmin.Size = new System.Drawing.Size(174, 72);
-            this.btnMenuAdmin.TabIndex = 1;
+            this.btnMenuAdmin.TabIndex = 3;
             this.btnMenuAdmin.Text = "Menu Administration";
             this.btnMenuAdmin.UseVisualStyleBackColor = true;
             this.btnMenuAdmin.Click += new System.EventHandler(this.btnMenuAdmin_Click);
@@ -63,7 +64,7 @@
             this.txbLoginUtilisateur.Margin = new System.Windows.Forms.Padding(6);
             this.txbLoginUtilisateur.Name = "txbLoginUtilisateur";
             this.txbLoginUtilisateur.Size = new System.Drawing.Size(196, 31);
-            this.txbLoginUtilisateur.TabIndex = 0;
+            this.txbLoginUtilisateur.TabIndex = 1;
             // 
             // lblNumEmploye
             // 
@@ -75,17 +76,28 @@
             this.lblNumEmploye.TabIndex = 0;
             this.lblNumEmploye.Text = "Numéro d\'employé:";
             // 
-            // InterfaceAdmin
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(192, 97);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(417, 48);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Ajouter un employé";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // InterfaceMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 283);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnMenuEmploye);
             this.Controls.Add(this.btnMenuAdmin);
             this.Controls.Add(this.txbLoginUtilisateur);
             this.Controls.Add(this.lblNumEmploye);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "InterfaceAdmin";
+            this.Name = "InterfaceMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu de sélection";
             this.ResumeLayout(false);
@@ -99,5 +111,6 @@
         private System.Windows.Forms.Button btnMenuAdmin;
         private System.Windows.Forms.TextBox txbLoginUtilisateur;
         private System.Windows.Forms.Label lblNumEmploye;
+        private System.Windows.Forms.Button button1;
     }
 }

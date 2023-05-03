@@ -11,6 +11,8 @@ namespace gestionRH
         public int numEmploye;
         public string categorie;
         public FeuilleTemps feuilleTemps;
+        public string prenomEmploye;
+        public string nomEmploye;
 
         public Employe(Employe employe)
         {
