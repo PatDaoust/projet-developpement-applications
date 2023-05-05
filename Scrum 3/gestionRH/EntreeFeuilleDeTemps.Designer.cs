@@ -206,6 +206,7 @@
             this.textBoxJour1Minutes.Name = "textBoxJour1Minutes";
             this.textBoxJour1Minutes.Size = new System.Drawing.Size(121, 22);
             this.textBoxJour1Minutes.TabIndex = 8;
+            this.textBoxJour1Minutes.TextChanged += new System.EventHandler(this.textBoxJour1Minutes_TextChanged);
             this.textBoxJour1Minutes.Leave += new System.EventHandler(this.textBoxJour1Projet_Leave);
             // 
             // textBoxJour1Projet

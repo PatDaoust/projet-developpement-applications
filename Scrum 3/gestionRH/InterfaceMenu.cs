@@ -92,7 +92,10 @@ namespace gestionRH
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(employeList[0].FullName.ToString());
+            this.Hide();
+            creationCompte unCreationCompte = new creationCompte();
+            unCreationCompte.ShowDialog();
+            this.Show();
         }
     }
 }

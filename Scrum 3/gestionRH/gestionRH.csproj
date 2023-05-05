@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -54,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="creationCompte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="creationCompte.Designer.cs">
+      <DependentUpon>creationCompte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employe.cs" />
     <Compile Include="EntreeFeuilleDeTemps.cs">
       <SubType>Form</SubType>
@@ -88,6 +97,9 @@
     <Compile Include="visualiserFeuilleDeTemps.Designer.cs">
       <DependentUpon>visualiserFeuilleDeTemps.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="creationCompte.resx">
+      <DependentUpon>creationCompte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EntreeFeuilleDeTemps.resx">
       <DependentUpon>EntreeFeuilleDeTemps.cs</DependentUpon>
     </EmbeddedResource>

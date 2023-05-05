@@ -53,5 +53,9 @@ namespace gestionRH
         {
             txbMotPasse.Clear();
         }
+
+        private void button1_Click(object sender, EventArgs e) {
+            //load interface to create account
+        }
     }
 }

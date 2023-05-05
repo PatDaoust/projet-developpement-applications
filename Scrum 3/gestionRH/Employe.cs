@@ -13,6 +13,7 @@ namespace gestionRH
         public FeuilleTemps feuilleTemps;
         public string prenomEmploye;
         public string nomEmploye;
+        public string hashMotDePasse;
 
         public Employe(Employe employe)
         {
@@ -37,6 +38,20 @@ namespace gestionRH
                 this.categorie = "Employé d'exploitation";
             }
             this.feuilleTemps = feuilleTemps;
+        }
+
+        public Employe(int numEmploye, string hashMotDePasse, string nomEmploye, string prenomEmploye) {
+            this.numEmploye = numEmploye;
+            if (numEmploye < 1000) {
+                this.categorie = "Administrateur";
+            } else if (numEmploye >= 1000 || numEmploye < 2000) {
+                this.categorie = "Production";
+            } else if (numEmploye > 2000) {
+                this.categorie = "Exploitation";
+            }
+            this.hashMotDePasse= hashMotDePasse;
+            this.nomEmploye=nomEmploye;
+            this.prenomEmploye = prenomEmploye;
         }
     }
 }

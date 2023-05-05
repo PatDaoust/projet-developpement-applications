@@ -469,5 +469,9 @@ namespace gestionRH {
             jour4 = jour1;
             jour5 = jour1;
         }
+
+        private void textBoxJour1Minutes_TextChanged(object sender, EventArgs e) {
+
+        }
     }
 }
