@@ -4,9 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static gestionRH.SecurePasswordHasher;
 
 namespace gestionRH
 {
@@ -21,7 +24,7 @@ namespace gestionRH
             InitializeComponent();
             employeLogin = empLogin;
             numUtilisateur = employeLogin.numEmploye;
-            txbNumUtilisateur.Text = numUtilisateur.ToString();            
+            txbNumUtilisateur.Text = numUtilisateur.ToString();
         }
 
 
@@ -30,7 +33,9 @@ namespace gestionRH
             try
             {
                 motPasse = txbMotPasse.Text;
-                if (motPasse.Equals("admin"))
+                string verifierPasse = employeLogin.hashMotDePasse;                
+
+                if (Verify(motPasse, verifierPasse))
                 {
                     FeuilleTempsGRH feuilleTempsGRH = new FeuilleTempsGRH(employeLogin);
                     this.Hide();
@@ -54,7 +59,8 @@ namespace gestionRH
             txbMotPasse.Clear();
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void button1_Click(object sender, EventArgs e)
+        {
             //load interface to create account
         }
     }

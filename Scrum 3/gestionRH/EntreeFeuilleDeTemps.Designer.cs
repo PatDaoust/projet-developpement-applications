@@ -54,54 +54,60 @@
             // labelnumeroEmployee
             // 
             this.labelnumeroEmployee.AutoSize = true;
-            this.labelnumeroEmployee.Location = new System.Drawing.Point(23, 20);
+            this.labelnumeroEmployee.Location = new System.Drawing.Point(17, 16);
+            this.labelnumeroEmployee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelnumeroEmployee.Name = "labelnumeroEmployee";
-            this.labelnumeroEmployee.Size = new System.Drawing.Size(130, 16);
+            this.labelnumeroEmployee.Size = new System.Drawing.Size(102, 13);
             this.labelnumeroEmployee.TabIndex = 0;
             this.labelnumeroEmployee.Text = "Numero D\'employe: ";
             // 
             // labelMois
             // 
             this.labelMois.AutoSize = true;
-            this.labelMois.Location = new System.Drawing.Point(23, 52);
+            this.labelMois.Location = new System.Drawing.Point(17, 42);
+            this.labelMois.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMois.Name = "labelMois";
-            this.labelMois.Size = new System.Drawing.Size(42, 16);
+            this.labelMois.Size = new System.Drawing.Size(35, 13);
             this.labelMois.TabIndex = 1;
             this.labelMois.Text = "Mois: ";
             // 
             // labelJourDuMois
             // 
             this.labelJourDuMois.AutoSize = true;
-            this.labelJourDuMois.Location = new System.Drawing.Point(23, 84);
+            this.labelJourDuMois.Location = new System.Drawing.Point(17, 68);
+            this.labelJourDuMois.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelJourDuMois.Name = "labelJourDuMois";
-            this.labelJourDuMois.Size = new System.Drawing.Size(89, 16);
+            this.labelJourDuMois.Size = new System.Drawing.Size(72, 13);
             this.labelJourDuMois.TabIndex = 2;
             this.labelJourDuMois.Text = "Jour du mois: ";
             // 
             // labelJour1
             // 
             this.labelJour1.AutoSize = true;
-            this.labelJour1.Location = new System.Drawing.Point(23, 28);
+            this.labelJour1.Location = new System.Drawing.Point(17, 23);
+            this.labelJour1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelJour1.Name = "labelJour1";
-            this.labelJour1.Size = new System.Drawing.Size(42, 16);
+            this.labelJour1.Size = new System.Drawing.Size(36, 13);
             this.labelJour1.TabIndex = 3;
             this.labelJour1.Text = "Jour:  ";
             // 
             // labelJour1Projet
             // 
             this.labelJour1Projet.AutoSize = true;
-            this.labelJour1Projet.Location = new System.Drawing.Point(23, 67);
+            this.labelJour1Projet.Location = new System.Drawing.Point(17, 54);
+            this.labelJour1Projet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelJour1Projet.Name = "labelJour1Projet";
-            this.labelJour1Projet.Size = new System.Drawing.Size(48, 16);
+            this.labelJour1Projet.Size = new System.Drawing.Size(40, 13);
             this.labelJour1Projet.TabIndex = 4;
             this.labelJour1Projet.Text = "Projet: ";
             // 
             // labelJour1Minutes
             // 
             this.labelJour1Minutes.AutoSize = true;
-            this.labelJour1Minutes.Location = new System.Drawing.Point(21, 101);
+            this.labelJour1Minutes.Location = new System.Drawing.Point(16, 82);
+            this.labelJour1Minutes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelJour1Minutes.Name = "labelJour1Minutes";
-            this.labelJour1Minutes.Size = new System.Drawing.Size(59, 16);
+            this.labelJour1Minutes.Size = new System.Drawing.Size(50, 13);
             this.labelJour1Minutes.TabIndex = 5;
             this.labelJour1Minutes.Text = "Minutes: ";
             // 
@@ -114,26 +120,29 @@
             this.panelID.Controls.Add(this.labelnumeroEmployee);
             this.panelID.Controls.Add(this.labelMois);
             this.panelID.Controls.Add(this.labelJourDuMois);
-            this.panelID.Location = new System.Drawing.Point(42, 31);
+            this.panelID.Location = new System.Drawing.Point(32, 25);
+            this.panelID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelID.Name = "panelID";
-            this.panelID.Size = new System.Drawing.Size(348, 123);
+            this.panelID.Size = new System.Drawing.Size(261, 100);
             this.panelID.TabIndex = 6;
             // 
             // textBoxNumeroEmployee
             // 
             this.textBoxNumeroEmployee.Enabled = false;
-            this.textBoxNumeroEmployee.Location = new System.Drawing.Point(188, 19);
+            this.textBoxNumeroEmployee.Location = new System.Drawing.Point(141, 15);
+            this.textBoxNumeroEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxNumeroEmployee.Name = "textBoxNumeroEmployee";
-            this.textBoxNumeroEmployee.Size = new System.Drawing.Size(121, 22);
+            this.textBoxNumeroEmployee.Size = new System.Drawing.Size(92, 20);
             this.textBoxNumeroEmployee.TabIndex = 8;
             this.textBoxNumeroEmployee.Leave += new System.EventHandler(this.textBoxNumeroEmployee_Leave);
             // 
             // comboBoxJourDuMois
             // 
             this.comboBoxJourDuMois.FormattingEnabled = true;
-            this.comboBoxJourDuMois.Location = new System.Drawing.Point(188, 82);
+            this.comboBoxJourDuMois.Location = new System.Drawing.Point(141, 67);
+            this.comboBoxJourDuMois.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxJourDuMois.Name = "comboBoxJourDuMois";
-            this.comboBoxJourDuMois.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxJourDuMois.Size = new System.Drawing.Size(92, 21);
             this.comboBoxJourDuMois.TabIndex = 7;
             this.comboBoxJourDuMois.SelectedIndexChanged += new System.EventHandler(this.comboBoxJourDuMois_SelectedIndexChanged);
             // 
@@ -153,9 +162,10 @@
             "Octobre",
             "Novembre",
             "Décembre"});
-            this.comboBoxMois.Location = new System.Drawing.Point(188, 52);
+            this.comboBoxMois.Location = new System.Drawing.Point(141, 42);
+            this.comboBoxMois.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxMois.Name = "comboBoxMois";
-            this.comboBoxMois.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxMois.Size = new System.Drawing.Size(92, 21);
             this.comboBoxMois.TabIndex = 3;
             this.comboBoxMois.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -169,9 +179,10 @@
             this.panelJour1.Controls.Add(this.labelJour1);
             this.panelJour1.Controls.Add(this.labelJour1Projet);
             this.panelJour1.Controls.Add(this.labelJour1Minutes);
-            this.panelJour1.Location = new System.Drawing.Point(42, 178);
+            this.panelJour1.Location = new System.Drawing.Point(32, 145);
+            this.panelJour1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelJour1.Name = "panelJour1";
-            this.panelJour1.Size = new System.Drawing.Size(348, 194);
+            this.panelJour1.Size = new System.Drawing.Size(261, 158);
             this.panelJour1.TabIndex = 7;
             // 
             // comboBoxJours
@@ -185,16 +196,18 @@
             "jour5",
             "weekend1",
             "weekend2"});
-            this.comboBoxJours.Location = new System.Drawing.Point(188, 28);
+            this.comboBoxJours.Location = new System.Drawing.Point(141, 23);
+            this.comboBoxJours.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxJours.Name = "comboBoxJours";
-            this.comboBoxJours.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxJours.Size = new System.Drawing.Size(92, 21);
             this.comboBoxJours.TabIndex = 11;
             // 
             // buttonAjouterJour1
             // 
-            this.buttonAjouterJour1.Location = new System.Drawing.Point(98, 150);
+            this.buttonAjouterJour1.Location = new System.Drawing.Point(74, 122);
+            this.buttonAjouterJour1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAjouterJour1.Name = "buttonAjouterJour1";
-            this.buttonAjouterJour1.Size = new System.Drawing.Size(129, 23);
+            this.buttonAjouterJour1.Size = new System.Drawing.Size(97, 19);
             this.buttonAjouterJour1.TabIndex = 10;
             this.buttonAjouterJour1.Text = "Ajouter";
             this.buttonAjouterJour1.UseVisualStyleBackColor = true;
@@ -202,27 +215,30 @@
             // 
             // textBoxJour1Minutes
             // 
-            this.textBoxJour1Minutes.Location = new System.Drawing.Point(188, 101);
+            this.textBoxJour1Minutes.Location = new System.Drawing.Point(141, 82);
+            this.textBoxJour1Minutes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxJour1Minutes.Name = "textBoxJour1Minutes";
-            this.textBoxJour1Minutes.Size = new System.Drawing.Size(121, 22);
+            this.textBoxJour1Minutes.Size = new System.Drawing.Size(92, 20);
             this.textBoxJour1Minutes.TabIndex = 8;
             this.textBoxJour1Minutes.TextChanged += new System.EventHandler(this.textBoxJour1Minutes_TextChanged);
             this.textBoxJour1Minutes.Leave += new System.EventHandler(this.textBoxJour1Projet_Leave);
             // 
             // textBoxJour1Projet
             // 
-            this.textBoxJour1Projet.Location = new System.Drawing.Point(188, 67);
+            this.textBoxJour1Projet.Location = new System.Drawing.Point(141, 54);
+            this.textBoxJour1Projet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxJour1Projet.Name = "textBoxJour1Projet";
-            this.textBoxJour1Projet.Size = new System.Drawing.Size(121, 22);
+            this.textBoxJour1Projet.Size = new System.Drawing.Size(92, 20);
             this.textBoxJour1Projet.TabIndex = 9;
             this.textBoxJour1Projet.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.textBoxJour1Projet.Leave += new System.EventHandler(this.textBoxJour1Minutes_Leave);
             // 
             // buttonVisualiser
             // 
-            this.buttonVisualiser.Location = new System.Drawing.Point(230, 634);
+            this.buttonVisualiser.Location = new System.Drawing.Point(172, 515);
+            this.buttonVisualiser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonVisualiser.Name = "buttonVisualiser";
-            this.buttonVisualiser.Size = new System.Drawing.Size(129, 64);
+            this.buttonVisualiser.Size = new System.Drawing.Size(97, 52);
             this.buttonVisualiser.TabIndex = 8;
             this.buttonVisualiser.Text = "Visualiser votre feuille de temps";
             this.buttonVisualiser.UseVisualStyleBackColor = true;
@@ -236,17 +252,19 @@
             this.panel1.Controls.Add(this.buttonSupprimer);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(42, 405);
+            this.panel1.Location = new System.Drawing.Point(32, 329);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(348, 170);
+            this.panel1.Size = new System.Drawing.Size(261, 138);
             this.panel1.TabIndex = 9;
             // 
             // comboBoxSuprimerProjet
             // 
             this.comboBoxSuprimerProjet.FormattingEnabled = true;
-            this.comboBoxSuprimerProjet.Location = new System.Drawing.Point(188, 67);
+            this.comboBoxSuprimerProjet.Location = new System.Drawing.Point(141, 54);
+            this.comboBoxSuprimerProjet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxSuprimerProjet.Name = "comboBoxSuprimerProjet";
-            this.comboBoxSuprimerProjet.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxSuprimerProjet.Size = new System.Drawing.Size(92, 21);
             this.comboBoxSuprimerProjet.TabIndex = 12;
             // 
             // comboBoxSupprimerJour
@@ -260,17 +278,19 @@
             "jour5",
             "weekend1",
             "weekend2"});
-            this.comboBoxSupprimerJour.Location = new System.Drawing.Point(188, 28);
+            this.comboBoxSupprimerJour.Location = new System.Drawing.Point(141, 23);
+            this.comboBoxSupprimerJour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxSupprimerJour.Name = "comboBoxSupprimerJour";
-            this.comboBoxSupprimerJour.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxSupprimerJour.Size = new System.Drawing.Size(92, 21);
             this.comboBoxSupprimerJour.TabIndex = 11;
             this.comboBoxSupprimerJour.SelectedIndexChanged += new System.EventHandler(this.comboBoxSupprimerJour_SelectedIndexChanged);
             // 
             // buttonSupprimer
             // 
-            this.buttonSupprimer.Location = new System.Drawing.Point(98, 121);
+            this.buttonSupprimer.Location = new System.Drawing.Point(74, 98);
+            this.buttonSupprimer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSupprimer.Name = "buttonSupprimer";
-            this.buttonSupprimer.Size = new System.Drawing.Size(129, 23);
+            this.buttonSupprimer.Size = new System.Drawing.Size(97, 19);
             this.buttonSupprimer.TabIndex = 10;
             this.buttonSupprimer.Text = "Supprimer";
             this.buttonSupprimer.UseVisualStyleBackColor = true;
@@ -279,26 +299,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 28);
+            this.label1.Location = new System.Drawing.Point(17, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Jour:  ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 67);
+            this.label2.Location = new System.Drawing.Point(17, 54);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 16);
+            this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Projet: ";
             // 
             // buttonAutofill
             // 
-            this.buttonAutofill.Location = new System.Drawing.Point(66, 634);
+            this.buttonAutofill.Location = new System.Drawing.Point(50, 515);
+            this.buttonAutofill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonAutofill.Name = "buttonAutofill";
-            this.buttonAutofill.Size = new System.Drawing.Size(129, 64);
+            this.buttonAutofill.Size = new System.Drawing.Size(97, 52);
             this.buttonAutofill.TabIndex = 10;
             this.buttonAutofill.Text = "Auto-remplir comme lundi";
             this.buttonAutofill.UseVisualStyleBackColor = true;
@@ -306,19 +329,20 @@
             // 
             // EntreeFeuilleDeTemps
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(445, 851);
+            this.ClientSize = new System.Drawing.Size(335, 691);
             this.Controls.Add(this.buttonAutofill);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonVisualiser);
             this.Controls.Add(this.panelJour1);
             this.Controls.Add(this.panelID);
-            this.MinimumSize = new System.Drawing.Size(463, 675);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(351, 556);
             this.Name = "EntreeFeuilleDeTemps";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EntreeFeuilleDeTemps";
+            this.Text = "Entrée De La Feuille De Temps";
             this.panelID.ResumeLayout(false);
             this.panelID.PerformLayout();
             this.panelJour1.ResumeLayout(false);

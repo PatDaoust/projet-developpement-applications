@@ -32,78 +32,86 @@
             this.textBoxPrenom = new System.Windows.Forms.TextBox();
             this.buttonCreeCompte = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelMDP1 = new System.Windows.Forms.Label();
-            this.labelMDP2 = new System.Windows.Forms.Label();
-            this.textBoxMDP1 = new System.Windows.Forms.TextBox();
             this.textBoxMDP2 = new System.Windows.Forms.TextBox();
+            this.textBoxMDP1 = new System.Windows.Forms.TextBox();
+            this.labelMDP2 = new System.Windows.Forms.Label();
+            this.labelMDP1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(146, 34);
+            this.label1.Location = new System.Drawing.Point(110, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 16);
+            this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Creation de Compe";
+            this.label1.Text = "Création de Compte";
             // 
             // labelNom
             // 
             this.labelNom.AutoSize = true;
-            this.labelNom.Location = new System.Drawing.Point(130, 27);
+            this.labelNom.Location = new System.Drawing.Point(98, 22);
+            this.labelNom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNom.Name = "labelNom";
-            this.labelNom.Size = new System.Drawing.Size(36, 16);
+            this.labelNom.Size = new System.Drawing.Size(29, 13);
             this.labelNom.TabIndex = 1;
             this.labelNom.Text = "Nom";
             // 
             // labelPrenom
             // 
             this.labelPrenom.AutoSize = true;
-            this.labelPrenom.Location = new System.Drawing.Point(113, 71);
+            this.labelPrenom.Location = new System.Drawing.Point(85, 58);
+            this.labelPrenom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPrenom.Name = "labelPrenom";
-            this.labelPrenom.Size = new System.Drawing.Size(54, 16);
+            this.labelPrenom.Size = new System.Drawing.Size(43, 13);
             this.labelPrenom.TabIndex = 2;
             this.labelPrenom.Text = "Prenom";
             // 
             // labelNumeroEmployee
             // 
             this.labelNumeroEmployee.AutoSize = true;
-            this.labelNumeroEmployee.Location = new System.Drawing.Point(37, 120);
+            this.labelNumeroEmployee.Location = new System.Drawing.Point(28, 98);
+            this.labelNumeroEmployee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNumeroEmployee.Name = "labelNumeroEmployee";
-            this.labelNumeroEmployee.Size = new System.Drawing.Size(130, 16);
+            this.labelNumeroEmployee.Size = new System.Drawing.Size(100, 13);
             this.labelNumeroEmployee.TabIndex = 3;
             this.labelNumeroEmployee.Text = "Numero d\'employee";
             // 
             // textBoxNom
             // 
-            this.textBoxNom.Location = new System.Drawing.Point(183, 23);
+            this.textBoxNom.Location = new System.Drawing.Point(137, 19);
+            this.textBoxNom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(115, 22);
-            this.textBoxNom.TabIndex = 4;
+            this.textBoxNom.Size = new System.Drawing.Size(87, 20);
+            this.textBoxNom.TabIndex = 1;
             // 
             // textBoxNumeroEmployee
             // 
-            this.textBoxNumeroEmployee.Location = new System.Drawing.Point(183, 120);
+            this.textBoxNumeroEmployee.Location = new System.Drawing.Point(137, 98);
+            this.textBoxNumeroEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxNumeroEmployee.Name = "textBoxNumeroEmployee";
-            this.textBoxNumeroEmployee.Size = new System.Drawing.Size(115, 22);
-            this.textBoxNumeroEmployee.TabIndex = 5;
+            this.textBoxNumeroEmployee.Size = new System.Drawing.Size(87, 20);
+            this.textBoxNumeroEmployee.TabIndex = 3;
             this.textBoxNumeroEmployee.Leave += new System.EventHandler(this.textBoxNumeroEmployee_Leave);
             // 
             // textBoxPrenom
             // 
-            this.textBoxPrenom.Location = new System.Drawing.Point(183, 71);
+            this.textBoxPrenom.Location = new System.Drawing.Point(137, 58);
+            this.textBoxPrenom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxPrenom.Name = "textBoxPrenom";
-            this.textBoxPrenom.Size = new System.Drawing.Size(115, 22);
-            this.textBoxPrenom.TabIndex = 6;
+            this.textBoxPrenom.Size = new System.Drawing.Size(87, 20);
+            this.textBoxPrenom.TabIndex = 2;
             // 
             // buttonCreeCompte
             // 
-            this.buttonCreeCompte.Location = new System.Drawing.Point(119, 391);
+            this.buttonCreeCompte.Location = new System.Drawing.Point(89, 318);
+            this.buttonCreeCompte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCreeCompte.Name = "buttonCreeCompte";
-            this.buttonCreeCompte.Size = new System.Drawing.Size(170, 36);
+            this.buttonCreeCompte.Size = new System.Drawing.Size(128, 29);
             this.buttonCreeCompte.TabIndex = 7;
-            this.buttonCreeCompte.Text = "Cree Mon Compte";
+            this.buttonCreeCompte.Text = "Créé Mon Compte";
             this.buttonCreeCompte.UseVisualStyleBackColor = true;
             this.buttonCreeCompte.Click += new System.EventHandler(this.buttonCreeCompte_Click);
             // 
@@ -120,57 +128,64 @@
             this.panel1.Controls.Add(this.labelNumeroEmployee);
             this.panel1.Controls.Add(this.textBoxNumeroEmployee);
             this.panel1.Controls.Add(this.textBoxNom);
-            this.panel1.Location = new System.Drawing.Point(27, 87);
+            this.panel1.Location = new System.Drawing.Point(20, 71);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(347, 263);
+            this.panel1.Size = new System.Drawing.Size(260, 214);
             this.panel1.TabIndex = 8;
             // 
-            // labelMDP1
+            // textBoxMDP2
             // 
-            this.labelMDP1.AutoSize = true;
-            this.labelMDP1.Location = new System.Drawing.Point(76, 167);
-            this.labelMDP1.Name = "labelMDP1";
-            this.labelMDP1.Size = new System.Drawing.Size(90, 16);
-            this.labelMDP1.TabIndex = 7;
-            this.labelMDP1.Text = "Mot de Passe";
+            this.textBoxMDP2.Location = new System.Drawing.Point(137, 170);
+            this.textBoxMDP2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMDP2.Name = "textBoxMDP2";
+            this.textBoxMDP2.PasswordChar = '*';
+            this.textBoxMDP2.Size = new System.Drawing.Size(87, 20);
+            this.textBoxMDP2.TabIndex = 5;
+            this.textBoxMDP2.UseSystemPasswordChar = true;
+            // 
+            // textBoxMDP1
+            // 
+            this.textBoxMDP1.Location = new System.Drawing.Point(137, 136);
+            this.textBoxMDP1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMDP1.Name = "textBoxMDP1";
+            this.textBoxMDP1.PasswordChar = '*';
+            this.textBoxMDP1.Size = new System.Drawing.Size(87, 20);
+            this.textBoxMDP1.TabIndex = 4;
+            this.textBoxMDP1.UseSystemPasswordChar = true;
             // 
             // labelMDP2
             // 
             this.labelMDP2.AutoSize = true;
-            this.labelMDP2.Location = new System.Drawing.Point(16, 209);
+            this.labelMDP2.Location = new System.Drawing.Point(12, 170);
+            this.labelMDP2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMDP2.Name = "labelMDP2";
-            this.labelMDP2.Size = new System.Drawing.Size(150, 16);
+            this.labelMDP2.Size = new System.Drawing.Size(119, 13);
             this.labelMDP2.TabIndex = 8;
             this.labelMDP2.Text = "Confirmer Mot de Passe";
             // 
-            // textBoxMDP1
+            // labelMDP1
             // 
-            this.textBoxMDP1.Location = new System.Drawing.Point(183, 167);
-            this.textBoxMDP1.Name = "textBoxMDP1";
-            this.textBoxMDP1.PasswordChar = '*';
-            this.textBoxMDP1.Size = new System.Drawing.Size(115, 22);
-            this.textBoxMDP1.TabIndex = 9;
-            this.textBoxMDP1.UseSystemPasswordChar = true;
-            // 
-            // textBoxMDP2
-            // 
-            this.textBoxMDP2.Location = new System.Drawing.Point(183, 209);
-            this.textBoxMDP2.Name = "textBoxMDP2";
-            this.textBoxMDP2.PasswordChar = '*';
-            this.textBoxMDP2.Size = new System.Drawing.Size(115, 22);
-            this.textBoxMDP2.TabIndex = 10;
-            this.textBoxMDP2.UseSystemPasswordChar = true;
+            this.labelMDP1.AutoSize = true;
+            this.labelMDP1.Location = new System.Drawing.Point(57, 136);
+            this.labelMDP1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMDP1.Name = "labelMDP1";
+            this.labelMDP1.Size = new System.Drawing.Size(72, 13);
+            this.labelMDP1.TabIndex = 7;
+            this.labelMDP1.Text = "Mot de Passe";
             // 
             // creationCompte
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 478);
+            this.ClientSize = new System.Drawing.Size(314, 388);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonCreeCompte);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "creationCompte";
-            this.Text = "creationCompte";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Création Du Nouveau Compte";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

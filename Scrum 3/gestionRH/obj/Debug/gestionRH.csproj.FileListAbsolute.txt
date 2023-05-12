@@ -117,7 +117,6 @@ A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\obj\Debug\ge
 A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\obj\Debug\gestionRH.pdb
 A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\bin\Debug\System.Data.SQLite.dll
 A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\bin\Debug\System.Data.SQLite.xml
-A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\bin\Debug\DBGestionRH.db
 A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\bin\Debug\Dapper.dll
 A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\bin\Debug\DBLibrary.pdb
 A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\bin\Debug\Dapper.xml
@@ -148,3 +147,4 @@ C:\projet-developpement-applications\projet-developpement-applications\Scrum 3\g
 C:\projet-developpement-applications\projet-developpement-applications\Scrum 3\gestionRH\obj\Debug\gestionRH.exe
 C:\projet-developpement-applications\projet-developpement-applications\Scrum 3\gestionRH\obj\Debug\gestionRH.pdb
 C:\projet-developpement-applications\projet-developpement-applications\Scrum 3\gestionRH\obj\Debug\gestionRH.creationCompte.resources
+A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\obj\Debug\gestionRH.creationCompte.resources

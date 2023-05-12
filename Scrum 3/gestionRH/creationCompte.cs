@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static gestionRH.SecurePasswordHasher;
 
 namespace gestionRH {
     public partial class creationCompte : Form {
@@ -18,24 +19,6 @@ namespace gestionRH {
         }
 
         private void label1_Click(object sender, EventArgs e) {
-
-        }
-
-        private string hashPassword(string password) {
-            //from https://stackoverflow.com/questions/4181198/how-to-hash-a-password
-            //Create the salt value
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
-            //get the hash value
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
-            byte[] hash = pbkdf2.GetBytes(20);
-            //Combine the salt and password bytes
-            byte[] hashBytes = new byte[36];
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-            // combine salt+hash into a string
-            string savedPasswordHash = Convert.ToBase64String(hashBytes);
-            return savedPasswordHash;
 
         }
 
@@ -57,13 +40,20 @@ namespace gestionRH {
                 MessageBox.Show("votre mot de passe ne correspond pas à lui-même", "Mot de passe Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            string hashedmdp = hashPassword(mdp1);
+            string hashedmdp = Hash(mdp1);
             //create employeeModel object
-            EmployeModel employe = new EmployeModel(numEmploye, hashedmdp, nomEmploye, prenomEmploye);
+            Employe employe = new Employe(numEmploye, hashedmdp, nomEmploye, prenomEmploye);
+            EmployeModel employeModel = new EmployeModel();
+            employeModel.employeID = employe.numEmploye;
+            employeModel.categorie = employe.categorie;
+            employeModel.prenomEmploye = employe.prenomEmploye;
+            employeModel.nomEmploye = employe.nomEmploye;
+            employeModel.motDePasse = employe.hashMotDePasse;
             //cree compte dans base de donnees
-            SqliteDataAccess.SaveEmploye(employe);
+            SqliteDataAccess.SaveEmploye(employeModel);
+            InterfaceMenu.employeList = SqliteDataAccess.LoadEmploye();
+            this.Close();
         }
-
 
         private void textBoxNumeroEmployee_Leave(object sender, EventArgs e) {
             //if not number, error
@@ -75,5 +65,4 @@ namespace gestionRH {
             }
         }
     }
-    
 }

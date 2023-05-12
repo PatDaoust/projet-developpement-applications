@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace gestionRH
     public partial class InterfaceMenu : Form
     {
         public static int numUtilisateur;
-        List<EmployeModel> employeList = new List<EmployeModel>();
+        public static List<EmployeModel> employeList = new List<EmployeModel>();
 
         public InterfaceMenu()
         {
@@ -25,70 +26,90 @@ namespace gestionRH
         private void btnMenuAdmin_Click(object sender, EventArgs e)
         {
             FeuilleTemps feuilleTemps = new FeuilleTemps();
-            Employe empLogin = new Employe(numUtilisateur, feuilleTemps);
+            Employe empLogin;
             try
             {
                 numUtilisateur = Convert.ToInt32(txbLoginUtilisateur.Text);
-                if (numUtilisateur < 1000)
+                empLogin = new Employe(numUtilisateur, feuilleTemps);
+
+                if (EntrerEmploye(empLogin))
                 {
-                    
-                    this.Hide();
-                    empLogin.numEmploye = numUtilisateur;
-                    LoginGRH loginGRH = new LoginGRH(empLogin);
-                    loginGRH.ShowDialog();
-                    this.Show();
+                    if (numUtilisateur < 1000)
+                    {
+                        this.Hide();
+                        empLogin.numEmploye = numUtilisateur;
+                        LoginGRH loginGRH = new LoginGRH(empLogin);
+                        loginGRH.ShowDialog();
+                        this.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seul les administrateurs peuvent accèder à ce menu", "Numéro Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Seul les administrateurs peuvent accèder à ce menu", "Numéro Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    throw new Exception();
                 }
             }
             catch
             {
-                MessageBox.Show("Ce numéro d'employé n'est pas valide", "Numéro Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Cet employé n'existe pas." + '\n' +
+                    "Voulez-vous ajouter un nouvel employé?", "Employé Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
         }
 
         public void btnMenuEmploye_Click(object sender, EventArgs e)
         {
             FeuilleTemps feuilleTemps = new FeuilleTemps();
-            Employe empLogin = new Employe(numUtilisateur, feuilleTemps);
+            Employe empLogin;
             try
             {
                 numUtilisateur = Convert.ToInt32(txbLoginUtilisateur.Text);
-                if (numUtilisateur >= 1000 && numUtilisateur < 2000)
-                {                    
-                    this.Hide();
-                    empLogin.numEmploye = numUtilisateur;
-                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
-                    MessageBox.Show("Vous êtes connecté en tant qu'employé de production", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    entreeFeuilleDeTemps.ShowDialog();
-                    this.Show();
-                }else if (numUtilisateur >= 2000)
+                empLogin = new Employe(numUtilisateur, feuilleTemps);
+
+                if (EntrerEmploye(empLogin))
                 {
-                    this.Hide();
-                    empLogin.numEmploye = numUtilisateur;
-                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
-                    MessageBox.Show("Vous êtes connecté en tant qu'employé d'exploitation", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    entreeFeuilleDeTemps.ShowDialog();
-                    this.Show();
+                    if (numUtilisateur >= 1000 && numUtilisateur < 2000)
+                    {
+                        this.Hide();
+                        empLogin.numEmploye = numUtilisateur;
+                        EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
+                        MessageBox.Show("Vous êtes connecté en tant qu'employé de production", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        entreeFeuilleDeTemps.ShowDialog();
+                        this.Show();
+                    }
+                    else if (numUtilisateur >= 2000)
+                    {
+                        this.Hide();
+                        empLogin.numEmploye = numUtilisateur;
+                        EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
+                        MessageBox.Show("Vous êtes connecté en tant qu'employé d'exploitation", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        entreeFeuilleDeTemps.ShowDialog();
+                        this.Show();
+                    }
+                    else if (numUtilisateur > 0 && numUtilisateur < 1000)
+                    {
+                        this.Hide();
+                        empLogin.numEmploye = numUtilisateur;
+                        EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
+                        MessageBox.Show("Vous êtes connecté en tant qu'administrateur", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        entreeFeuilleDeTemps.ShowDialog();
+                        this.Show();
+                    }
                 }
-                else if (numUtilisateur > 0 && numUtilisateur < 1000)
+                else
                 {
-                    this.Hide();
-                    empLogin.numEmploye = numUtilisateur;
-                    EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
-                    MessageBox.Show("Vous êtes connecté en tant qu'administrateur", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    entreeFeuilleDeTemps.ShowDialog();
-                    this.Show();
+                    throw new Exception();
                 }
             }
             catch
             {
-                MessageBox.Show("Ce numéro d'employé n'est pas valide", "Numéro Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Cet employé n'existe pas." +'\n'+
+                    "Voulez-vous ajouter un nouvel employé?", "Employé Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -96,6 +117,26 @@ namespace gestionRH
             creationCompte unCreationCompte = new creationCompte();
             unCreationCompte.ShowDialog();
             this.Show();
+        }
+
+        private bool EntrerEmploye(Employe testEmpLogin){
+            int numEmploye = testEmpLogin.numEmploye;
+            bool trouve = false;
+            foreach (EmployeModel user in employeList)
+            {
+                if (numEmploye == user.employeID)
+                {
+                    testEmpLogin.hashMotDePasse = user.motDePasse;
+                    testEmpLogin.nomEmploye = user.nomEmploye;
+                    testEmpLogin.prenomEmploye = user.prenomEmploye;
+                    trouve = true;
+                }
+            }
+            if (!trouve)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

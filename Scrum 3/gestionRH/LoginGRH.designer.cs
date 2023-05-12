@@ -40,10 +40,9 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(129, 118);
-            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnnuler.Location = new System.Drawing.Point(97, 96);
             this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(100, 29);
+            this.btnAnnuler.Size = new System.Drawing.Size(75, 24);
             this.btnAnnuler.TabIndex = 4;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
@@ -51,10 +50,9 @@
             // 
             // btnConnection
             // 
-            this.btnConnection.Location = new System.Drawing.Point(309, 118);
-            this.btnConnection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConnection.Location = new System.Drawing.Point(232, 96);
             this.btnConnection.Name = "btnConnection";
-            this.btnConnection.Size = new System.Drawing.Size(100, 29);
+            this.btnConnection.Size = new System.Drawing.Size(75, 24);
             this.btnConnection.TabIndex = 3;
             this.btnConnection.Text = "Connection";
             this.btnConnection.UseVisualStyleBackColor = true;
@@ -62,48 +60,44 @@
             // 
             // txbMotPasse
             // 
-            this.txbMotPasse.Location = new System.Drawing.Point(275, 67);
-            this.txbMotPasse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbMotPasse.Location = new System.Drawing.Point(206, 54);
             this.txbMotPasse.Name = "txbMotPasse";
             this.txbMotPasse.PasswordChar = '*';
-            this.txbMotPasse.Size = new System.Drawing.Size(132, 22);
+            this.txbMotPasse.Size = new System.Drawing.Size(100, 20);
             this.txbMotPasse.TabIndex = 2;
             // 
             // lblMotPasse
             // 
             this.lblMotPasse.AutoSize = true;
-            this.lblMotPasse.Location = new System.Drawing.Point(125, 71);
-            this.lblMotPasse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMotPasse.Location = new System.Drawing.Point(94, 58);
             this.lblMotPasse.Name = "lblMotPasse";
-            this.lblMotPasse.Size = new System.Drawing.Size(92, 16);
+            this.lblMotPasse.Size = new System.Drawing.Size(74, 13);
             this.lblMotPasse.TabIndex = 1;
             this.lblMotPasse.Text = "Mot de passe:";
             // 
             // txbNumUtilisateur
             // 
             this.txbNumUtilisateur.Enabled = false;
-            this.txbNumUtilisateur.Location = new System.Drawing.Point(275, 33);
-            this.txbNumUtilisateur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbNumUtilisateur.Location = new System.Drawing.Point(206, 27);
             this.txbNumUtilisateur.Name = "txbNumUtilisateur";
-            this.txbNumUtilisateur.Size = new System.Drawing.Size(132, 22);
+            this.txbNumUtilisateur.Size = new System.Drawing.Size(100, 20);
             this.txbNumUtilisateur.TabIndex = 1;
             // 
             // lblNumEmploye
             // 
             this.lblNumEmploye.AutoSize = true;
-            this.lblNumEmploye.Location = new System.Drawing.Point(125, 36);
-            this.lblNumEmploye.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumEmploye.Location = new System.Drawing.Point(94, 29);
             this.lblNumEmploye.Name = "lblNumEmploye";
-            this.lblNumEmploye.Size = new System.Drawing.Size(125, 16);
+            this.lblNumEmploye.Size = new System.Drawing.Size(97, 13);
             this.lblNumEmploye.TabIndex = 0;
             this.lblNumEmploye.Text = "Numéro d\'employé:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(128, 172);
+            this.button1.Location = new System.Drawing.Point(96, 140);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(281, 31);
+            this.button1.Size = new System.Drawing.Size(211, 25);
             this.button1.TabIndex = 5;
             this.button1.Text = "Ajouter un employé";
             this.button1.UseVisualStyleBackColor = true;
@@ -111,9 +105,9 @@
             // 
             // LoginGRH
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 250);
+            this.ClientSize = new System.Drawing.Size(400, 203);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnConnection);
@@ -123,9 +117,10 @@
             this.Controls.Add(this.lblNumEmploye);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "LoginGRH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestion de Ressouces Humaines";
+            this.Text = "Gestion des Ressouces Humaines";
             this.ResumeLayout(false);
             this.PerformLayout();
 

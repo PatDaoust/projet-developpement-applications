@@ -8,7 +8,7 @@ namespace DBLibrary
 {
     public class EmployeModel
     {
-        public int EmployeID { get; set; }
+        public int employeID { get; set; }
         public string categorie { get; set; }
         public string prenomEmploye { get; set; }
         public string nomEmploye { get; set; }

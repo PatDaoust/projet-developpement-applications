@@ -91,6 +91,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurePasswordHasher.cs" />
     <Compile Include="visualiserFeuilleDeTemps.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,9 +125,6 @@
     <EmbeddedResource Include="visualiserFeuilleDeTemps.resx">
       <DependentUpon>visualiserFeuilleDeTemps.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="DBGestionRH.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

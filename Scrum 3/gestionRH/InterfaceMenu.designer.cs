@@ -40,10 +40,9 @@
             // 
             // btnMenuEmploye
             // 
-            this.btnMenuEmploye.Location = new System.Drawing.Point(127, 102);
-            this.btnMenuEmploye.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenuEmploye.Location = new System.Drawing.Point(95, 83);
             this.btnMenuEmploye.Name = "btnMenuEmploye";
-            this.btnMenuEmploye.Size = new System.Drawing.Size(116, 46);
+            this.btnMenuEmploye.Size = new System.Drawing.Size(87, 37);
             this.btnMenuEmploye.TabIndex = 2;
             this.btnMenuEmploye.Text = "  Menu   Employé";
             this.btnMenuEmploye.UseVisualStyleBackColor = true;
@@ -51,10 +50,9 @@
             // 
             // btnMenuAdmin
             // 
-            this.btnMenuAdmin.Location = new System.Drawing.Point(290, 102);
-            this.btnMenuAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenuAdmin.Location = new System.Drawing.Point(218, 83);
             this.btnMenuAdmin.Name = "btnMenuAdmin";
-            this.btnMenuAdmin.Size = new System.Drawing.Size(116, 46);
+            this.btnMenuAdmin.Size = new System.Drawing.Size(87, 37);
             this.btnMenuAdmin.TabIndex = 3;
             this.btnMenuAdmin.Text = "Menu Administration";
             this.btnMenuAdmin.UseVisualStyleBackColor = true;
@@ -62,28 +60,26 @@
             // 
             // txbLoginUtilisateur
             // 
-            this.txbLoginUtilisateur.Location = new System.Drawing.Point(275, 33);
-            this.txbLoginUtilisateur.Margin = new System.Windows.Forms.Padding(4);
+            this.txbLoginUtilisateur.Location = new System.Drawing.Point(206, 27);
             this.txbLoginUtilisateur.Name = "txbLoginUtilisateur";
-            this.txbLoginUtilisateur.Size = new System.Drawing.Size(132, 22);
+            this.txbLoginUtilisateur.Size = new System.Drawing.Size(100, 20);
             this.txbLoginUtilisateur.TabIndex = 1;
             // 
             // lblNumEmploye
             // 
             this.lblNumEmploye.AutoSize = true;
-            this.lblNumEmploye.Location = new System.Drawing.Point(125, 36);
-            this.lblNumEmploye.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumEmploye.Location = new System.Drawing.Point(94, 29);
             this.lblNumEmploye.Name = "lblNumEmploye";
-            this.lblNumEmploye.Size = new System.Drawing.Size(125, 16);
+            this.lblNumEmploye.Size = new System.Drawing.Size(97, 13);
             this.lblNumEmploye.TabIndex = 0;
             this.lblNumEmploye.Text = "Numéro d\'employé:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(128, 62);
+            this.button1.Location = new System.Drawing.Point(96, 50);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(278, 31);
+            this.button1.Size = new System.Drawing.Size(208, 25);
             this.button1.TabIndex = 4;
             this.button1.Text = "Ajouter un employé";
             this.button1.UseVisualStyleBackColor = true;
@@ -97,9 +93,9 @@
             // 
             // InterfaceMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 299);
+            this.ClientSize = new System.Drawing.Size(400, 243);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnMenuEmploye);
             this.Controls.Add(this.btnMenuAdmin);
@@ -109,7 +105,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InterfaceMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu de sélection";
+            this.Text = "Menu De Sélection";
             this.ResumeLayout(false);
             this.PerformLayout();
 
