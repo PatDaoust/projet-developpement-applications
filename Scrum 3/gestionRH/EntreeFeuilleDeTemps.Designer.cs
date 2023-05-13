@@ -230,7 +230,6 @@
             this.textBoxJour1Projet.Name = "textBoxJour1Projet";
             this.textBoxJour1Projet.Size = new System.Drawing.Size(92, 20);
             this.textBoxJour1Projet.TabIndex = 9;
-            this.textBoxJour1Projet.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.textBoxJour1Projet.Leave += new System.EventHandler(this.textBoxJour1Minutes_Leave);
             // 
             // buttonVisualiser

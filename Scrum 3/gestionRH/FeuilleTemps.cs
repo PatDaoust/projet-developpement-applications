@@ -9,32 +9,32 @@ namespace gestionRH
 {
     public class FeuilleTemps
     {
-        public ArrayList jour1 = new ArrayList();
-        public ArrayList jour2 = new ArrayList();
-        public ArrayList jour3 = new ArrayList();
-        public ArrayList jour4 = new ArrayList();
-        public ArrayList jour5 = new ArrayList();
-        public ArrayList weekend1 = new ArrayList();
-        public ArrayList weekend2 = new ArrayList();
+        public int jour1;
+        public int jour2;
+        public int jour3;
+        public int jour4;
+        public int jour5;
+        public int weekend1;
+        public int weekend2;
 
         public FeuilleTemps()
         {
-            this.jour1 = null;
-            this.jour2 = null;
-            this.jour3 = null;
-            this.jour4 = null;
-            this.jour5 = null;
-            this.weekend1 = null;
-            this.weekend2 = null;
+            this.jour1 = 0;
+            this.jour2 = 0;
+            this.jour3 = 0;
+            this.jour4 = 0;
+            this.jour5 = 0;
+            this.weekend1 = 0;
+            this.weekend2 = 0;
         }
         public FeuilleTemps(
-            ArrayList jour1,
-            ArrayList jour2,
-            ArrayList jour3,
-            ArrayList jour4,
-            ArrayList jour5,
-            ArrayList weekend1,
-            ArrayList weekend2)
+            int jour1,
+            int jour2,
+            int jour3,
+            int jour4,
+            int jour5,
+            int weekend1,
+            int weekend2)
         {
             this.jour1=jour1;
             this.jour2=jour2;
@@ -44,6 +44,5 @@ namespace gestionRH
             this.weekend1=weekend1;
             this.weekend2=weekend2;
         }
-
     }
 }

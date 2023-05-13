@@ -16,7 +16,7 @@ namespace gestionRH
     {
         public static int numUtilisateur;
         public static List<EmployeModel> employeList = new List<EmployeModel>();
-
+        public static List<FeuilleTempsModel> feuilleList = new List<FeuilleTempsModel>();
         public InterfaceMenu()
         {
             InitializeComponent();
@@ -126,6 +126,7 @@ namespace gestionRH
             {
                 if (numEmploye == user.employeID)
                 {
+                    feuilleList = SqliteDataAccess.LoadFeuille(user);
                     testEmpLogin.hashMotDePasse = user.motDePasse;
                     testEmpLogin.nomEmploye = user.nomEmploye;
                     testEmpLogin.prenomEmploye = user.prenomEmploye;
