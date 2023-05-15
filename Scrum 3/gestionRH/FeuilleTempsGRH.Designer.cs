@@ -38,16 +38,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.dgvFeuillesTempsAdmin = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFeuillesTempsAdmin)).BeginInit();
             this.SuspendLayout();
             // 
-            // txbNumEmploye
+            // txbNumUtilisateur
             // 
             this.txbNumUtilisateur.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbNumUtilisateur.Enabled = false;
             this.txbNumUtilisateur.Location = new System.Drawing.Point(176, 20);
-            this.txbNumUtilisateur.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txbNumUtilisateur.Name = "txbNumEmploye";
+            this.txbNumUtilisateur.Margin = new System.Windows.Forms.Padding(2);
+            this.txbNumUtilisateur.Name = "txbNumUtilisateur";
             this.txbNumUtilisateur.Size = new System.Drawing.Size(129, 20);
             this.txbNumUtilisateur.TabIndex = 0;
             // 
@@ -57,7 +59,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbFichierOuvert.Enabled = false;
             this.txbFichierOuvert.Location = new System.Drawing.Point(176, 50);
-            this.txbFichierOuvert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbFichierOuvert.Margin = new System.Windows.Forms.Padding(2);
             this.txbFichierOuvert.Name = "txbFichierOuvert";
             this.txbFichierOuvert.Size = new System.Drawing.Size(283, 20);
             this.txbFichierOuvert.TabIndex = 1;
@@ -65,7 +67,7 @@
             // btnOuvrir
             // 
             this.btnOuvrir.Location = new System.Drawing.Point(94, 126);
-            this.btnOuvrir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOuvrir.Margin = new System.Windows.Forms.Padding(2);
             this.btnOuvrir.Name = "btnOuvrir";
             this.btnOuvrir.Size = new System.Drawing.Size(64, 20);
             this.btnOuvrir.TabIndex = 2;
@@ -75,20 +77,19 @@
             // 
             // rtbAffiche
             // 
-            this.rtbAffiche.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.rtbAffiche.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbAffiche.Location = new System.Drawing.Point(176, 106);
-            this.rtbAffiche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtbAffiche.Margin = new System.Windows.Forms.Padding(2);
             this.rtbAffiche.Name = "rtbAffiche";
-            this.rtbAffiche.Size = new System.Drawing.Size(283, 584);
+            this.rtbAffiche.Size = new System.Drawing.Size(283, 144);
             this.rtbAffiche.TabIndex = 3;
             this.rtbAffiche.Text = "";
             // 
             // btnValider
             // 
             this.btnValider.Location = new System.Drawing.Point(94, 171);
-            this.btnValider.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnValider.Margin = new System.Windows.Forms.Padding(2);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(64, 20);
             this.btnValider.TabIndex = 4;
@@ -99,7 +100,7 @@
             // btnRapport
             // 
             this.btnRapport.Location = new System.Drawing.Point(94, 216);
-            this.btnRapport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRapport.Margin = new System.Windows.Forms.Padding(2);
             this.btnRapport.Name = "btnRapport";
             this.btnRapport.Size = new System.Drawing.Size(64, 34);
             this.btnRapport.TabIndex = 5;
@@ -135,11 +136,26 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Feuille de temps chargée:";
             // 
+            // dgvFeuillesTempsAdmin
+            // 
+            this.dgvFeuillesTempsAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFeuillesTempsAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFeuillesTempsAdmin.Location = new System.Drawing.Point(21, 273);
+            this.dgvFeuillesTempsAdmin.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvFeuillesTempsAdmin.Name = "dgvFeuillesTempsAdmin";
+            this.dgvFeuillesTempsAdmin.RowHeadersWidth = 36;
+            this.dgvFeuillesTempsAdmin.RowTemplate.Height = 31;
+            this.dgvFeuillesTempsAdmin.Size = new System.Drawing.Size(438, 265);
+            this.dgvFeuillesTempsAdmin.TabIndex = 9;
+            this.dgvFeuillesTempsAdmin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFeuillesTempsAdmin_CellClick);
+            // 
             // FeuilleTempsGRH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 711);
+            this.ClientSize = new System.Drawing.Size(484, 561);
+            this.Controls.Add(this.dgvFeuillesTempsAdmin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -154,6 +170,7 @@
             this.Name = "FeuilleTempsGRH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FeuilleTempsGRH";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFeuillesTempsAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,5 +187,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dgvFeuillesTempsAdmin;
     }
 }

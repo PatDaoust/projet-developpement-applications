@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DBLibrary
 {
@@ -18,5 +19,17 @@ namespace DBLibrary
         public int vendredi { get; set; }
         public int samedi { get; set; }
         public int dimanche { get; set; }
+
+        public FeuilleTempsModel()
+        {
+
+        }
+
+        private DataGridViewSelectedRowCollection selectedRows;
+
+        public FeuilleTempsModel(DataGridViewSelectedRowCollection selectedRows)
+        {
+            this.selectedRows = selectedRows;
+        }
     }
 }

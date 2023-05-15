@@ -27,12 +27,13 @@ namespace gestionRH
         public static ArrayList jour5 = new ArrayList();
         public static ArrayList weekend1 = new ArrayList();
         public static ArrayList weekend2 = new ArrayList();
-        public static List<Projet> projetList = new List<Projet>();
-        public static List<FeuilleTempsModel> feuilleList = InterfaceMenu.feuilleList;
         public static string feuilleDeTempsComplet = "";
+
+        public static List<Projet> projetList = new List<Projet>();
+        public static List<FeuilleTempsModel> feuilleList = InterfaceMenu.feuilleList;        
         public static object choixMois;
         public static object choixJour;
-        public Employe employeLogin;
+        public static Employe employeLogin;
         public static Projet projetEnCours;
         public int numUtilisateur;
         public int jourAn;
@@ -45,6 +46,8 @@ namespace gestionRH
             textBoxNumeroEmployee.Text = numUtilisateur.ToString();
             refreshFeuille();
         }
+
+       
 
         public void refreshFeuille()
         {
@@ -68,16 +71,16 @@ namespace gestionRH
             weekend2.Clear();
 
 
-            foreach (FeuilleTempsModel feuilleTemps in feuilleList)
-            {
-                jour1.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.lundi));
-                jour2.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.mardi));
-                jour3.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.mercredi));
-                jour4.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.jeudi));
-                jour5.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.vendredi));
-                weekend1.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.samedi));
-                weekend2.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.dimanche));
-            }
+            //foreach (FeuilleTempsModel feuilleTemps in feuilleList)
+            //{
+            //    jour1.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.lundi));
+            //    jour2.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.mardi));
+            //    jour3.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.mercredi));
+            //    jour4.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.jeudi));
+            //    jour5.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.vendredi));
+            //    weekend1.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.samedi));
+            //    weekend2.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.dimanche));
+            //}
         }
 
         public void refreshFeuille(Projet projetEnCours)
@@ -90,25 +93,46 @@ namespace gestionRH
             weekend1.Clear();
             weekend2.Clear();
 
-            foreach (FeuilleTempsModel feuilleTemps in feuilleList)
-            {
-                jour1.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.lundi));
-                jour2.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.mardi));
-                jour3.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.mercredi));
-                jour4.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.jeudi));
-                jour5.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.vendredi));
-                weekend1.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.samedi));
-                weekend2.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.dimanche));
-            }
+            //foreach (FeuilleTempsModel feuilleTemps in feuilleList)
+            //{
+            //    jour1.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.lundi));
+            //    jour2.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.mardi));
+            //    jour3.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.mercredi));
+            //    jour4.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.jeudi));
+            //    jour5.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.vendredi));
+            //    weekend1.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.samedi));
+            //    weekend2.Add(ajoutEntree(feuilleTemps.projetID, feuilleTemps.dimanche));
+            //}
             foreach (Projet projet in projetList)
             {
-                jour1.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour1));
-                jour2.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour2));
-                jour3.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour3));
-                jour4.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour4));
-                jour5.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour5));
-                weekend1.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.weekend1));
-                weekend2.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.weekend2));
+                if (projet.feuilleTemps.jour1 != 0)
+                {
+                    jour1.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour1));
+                }
+                if (projet.feuilleTemps.jour2 != 0)
+                {
+                    jour2.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour2));
+                }
+                if (projet.feuilleTemps.jour3 != 0)
+                {
+                    jour3.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour3));
+                }
+                if (projet.feuilleTemps.jour4 != 0)
+                {
+                    jour4.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour4));
+                }
+                if (projet.feuilleTemps.jour5 != 0)
+                {
+                    jour5.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.jour5));
+                }
+                if (projet.feuilleTemps.weekend1 != 0)
+                {
+                    weekend1.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.weekend1));
+                }
+                if (projet.feuilleTemps.weekend2 != 0)
+                {
+                    weekend2.Add(ajoutEntree(projet.projetID, projet.feuilleTemps.weekend2));
+                }                
             }
         }
 

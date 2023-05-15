@@ -148,3 +148,4 @@ C:\projet-developpement-applications\projet-developpement-applications\Scrum 3\g
 C:\projet-developpement-applications\projet-developpement-applications\Scrum 3\gestionRH\obj\Debug\gestionRH.pdb
 C:\projet-developpement-applications\projet-developpement-applications\Scrum 3\gestionRH\obj\Debug\gestionRH.creationCompte.resources
 A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\obj\Debug\gestionRH.creationCompte.resources
+A:\Repositories\projet-developpement-applications\Scrum 3\gestionRH\bin\Debug\FastMember.dll
