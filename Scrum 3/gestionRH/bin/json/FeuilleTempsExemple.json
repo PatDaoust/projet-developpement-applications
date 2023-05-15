@@ -1,5 +1,6 @@
 {
   "numeroEmploye": 3884,
+  "jourAnnee":57,
   "jour1": [
     {
       "projet": 200,
@@ -14,7 +15,6 @@
       "minutes": 180
     }
   ],
-
   "jour2": [
     {
       "projet": 125,

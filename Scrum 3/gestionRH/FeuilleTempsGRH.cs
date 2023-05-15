@@ -186,14 +186,6 @@ namespace gestionRH
         }
         private void btnOuvrir_Click(object sender, EventArgs e)
         {
-
-            string affiche = "Feuille de temps #:" + jourID + ", Projet #:" + projetID;
-            txbFichierOuvert.Text = affiche;
-
-            feuilleDeTempsComplet = "";
-            chargeFeuile();
-            LireString(feuilleDeTempsComplet);
-            /*
             //user selects JSON file to be analyzed
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.ShowDialog();
@@ -212,7 +204,7 @@ namespace gestionRH
             catch
             {
                 MessageBox.Show("Aucun fichier selectionné!", "Fichier Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }*/
+            }
 
             //MessageBox.Show(fichier[0]); //TODO remove after debugging            
         }
@@ -462,6 +454,23 @@ namespace gestionRH
             }
         }
 
+        private void btnRafraichir_Click(object sender, EventArgs e)
+        {
+            if(jourID==0 || projetID == 0)
+            {
+                MessageBox.Show("Veuillez choisir une feuille à afficher!");
+            }
+            else
+            {
+                string affiche = "Feuille de temps #:" + jourID + ", Projet #:" + projetID;
+                txbFichierOuvert.Text = affiche;
+
+                feuilleDeTempsComplet = "";
+                chargeFeuile();
+                LireString(feuilleDeTempsComplet);
+            }
+        }
+
         public void regleFerie(JArray timesheetJours, JArray timesheetWeekend, int dayofYearMonday)
         {
             //Lors d'un congé férié, l'employé doit charger 420 minutes dans le code de projet 998.
@@ -608,12 +617,16 @@ namespace gestionRH
             // Extraction du numéro d'employe et des donnees de la feuille de temps
             if (feuilleTemps != null)
             {
-                JObject input = JObject.Parse(feuilleTemps[0]);
+                try
+                {
+                    JObject input = JObject.Parse(feuilleTemps[0]);
 
-                // Extract employee number and day of year 
-                int numeroEmploye = (int)input["numeroEmploye"];
+                        // Extract employee number and day of year 
+                        int numeroEmploye = (int)input["numeroEmploye"];
                 int dayofYearMonday = (int)input["jourAnnee"];
+                    
 
+                    
                 //Extract timesheet data for each day
                 JArray jour1 = (JArray)input["jour1"];
                 JArray jour2 = (JArray)input["jour2"];
@@ -625,6 +638,7 @@ namespace gestionRH
                 JArray timesheetData = new JArray(jour1, jour2, jour3, jour4, jour5, weekend1, weekend2);
                 JArray timesheetJours = new JArray(jour1, jour2, jour3, jour4, jour5);
                 JArray timesheetWeekend = new JArray(weekend1, weekend2);
+
 
                 // Validation des donnees de la feuille de temps
                 errors = new JArray();
@@ -642,6 +656,12 @@ namespace gestionRH
                 regleFerie(timesheetJours, timesheetWeekend, dayofYearMonday);
                 regleParental(timesheetWeekend);
                 regleTransport(timesheetJours);
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Une erreur du fichier source. Veuillez sélectionner un autre fichier");
+                }
             }
         }
 
@@ -651,7 +671,17 @@ namespace gestionRH
             Valider(fichierOuvert);
             if (fichierOuvert != null)
             {
-                rtbAffiche.Text = errors.ToString();
+                try
+                {
+                    if (errors != null)
+                    {
+                        rtbAffiche.Text = errors.ToString();
+                    }
+                }catch(Exception ex)
+                {
+                    rtbAffiche.Text = "Aucune erreur trouvée";
+                }
+                
             }
             else
             {
