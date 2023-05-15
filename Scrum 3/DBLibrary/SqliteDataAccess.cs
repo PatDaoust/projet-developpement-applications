@@ -74,7 +74,7 @@ namespace DBLibrary
                 }
                 catch
                 {
-                    MessageBox.Show("Feuille existante. Réessayer", "Feuille Existante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Feuille inexistante. Réessayer", "Feuille inexistante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
