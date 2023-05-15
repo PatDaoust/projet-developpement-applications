@@ -24,12 +24,5 @@ namespace DBLibrary
         {
 
         }
-
-        private DataGridViewSelectedRowCollection selectedRows;
-
-        public FeuilleTempsModel(DataGridViewSelectedRowCollection selectedRows)
-        {
-            this.selectedRows = selectedRows;
-        }
     }
 }
