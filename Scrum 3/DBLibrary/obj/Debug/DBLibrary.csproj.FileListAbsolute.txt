@@ -1,0 +1,12 @@
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.csproj.AssemblyReference.cache
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.csproj.CoreCompileInputs.cache
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\DBLibrary.pdb
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\Dapper.dll
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\System.Data.SQLite.dll
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\Dapper.xml
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\System.Data.SQLite.xml
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.csproj.CopyComplete
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.pdb
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.csproj.SuggestedBindingRedirects.cache
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\DBLibrary.exe
+A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.exe
