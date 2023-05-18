@@ -10,3 +10,15 @@ A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DB
 A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.csproj.SuggestedBindingRedirects.cache
 A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\DBLibrary.exe
 A:\Repositories\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.exe
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\DBLibrary.exe
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\DBLibrary.pdb
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\Dapper.dll
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\System.Data.SQLite.dll
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\Dapper.xml
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\bin\Debug\System.Data.SQLite.xml
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.csproj.AssemblyReference.cache
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.csproj.SuggestedBindingRedirects.cache
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.csproj.CoreCompileInputs.cache
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.csproj.CopyComplete
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.exe
+C:\projet-app-dev\projet-developpement-applications\Scrum 3\DBLibrary\obj\Debug\DBLibrary.pdb

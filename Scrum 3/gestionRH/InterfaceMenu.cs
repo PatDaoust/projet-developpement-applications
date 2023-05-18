@@ -53,11 +53,35 @@ namespace gestionRH
 
             } catch {
                 MessageBox.Show("Ce mot de passe n'est pas valide", "Accès Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }        
+            }           
         }
 
         public void btnMenuEmploye_Click(object sender, EventArgs e)
         {
+            try {
+                motPasse = txbMotPasse.Text;
+                numUtilisateur = Int32.Parse(txbLoginUtilisateur.Text);
+                FeuilleTemps feuilleTemps = new FeuilleTemps();
+                employeLogin = new Employe(numUtilisateur, feuilleTemps);
+                employeLogin.numEmploye = numUtilisateur;
+
+                if (EntrerEmploye(employeLogin)) {
+                    string verifierPasse = employeLogin.hashMotDePasse;
+                    if (Verify(motPasse, verifierPasse)) {
+                        this.Hide();
+                        employeLogin.numEmploye = numUtilisateur;
+                        EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(employeLogin);
+                        entreeFeuilleDeTemps.ShowDialog();
+                        this.Show();
+                    } else {
+                        throw new Exception();
+                    }
+                }
+
+            } catch {
+                MessageBox.Show("Ce mot de passe n'est pas valide", "Accès Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            /*
             FeuilleTemps feuilleTemps = new FeuilleTemps();
             Employe empLogin;
             try
@@ -67,33 +91,11 @@ namespace gestionRH
 
                 if (EntrerEmploye(empLogin))
                 {
-                    if (numUtilisateur >= 1000 && numUtilisateur < 2000)
-                    {
                         this.Hide();
                         empLogin.numEmploye = numUtilisateur;
                         EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
-                        MessageBox.Show("Vous êtes connecté en tant qu'employé de production", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         entreeFeuilleDeTemps.ShowDialog();
                         this.Show();
-                    }
-                    else if (numUtilisateur >= 2000)
-                    {
-                        this.Hide();
-                        empLogin.numEmploye = numUtilisateur;
-                        EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
-                        MessageBox.Show("Vous êtes connecté en tant qu'employé d'exploitation", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        entreeFeuilleDeTemps.ShowDialog();
-                        this.Show();
-                    }
-                    else if (numUtilisateur > 0 && numUtilisateur < 1000)
-                    {
-                        this.Hide();
-                        empLogin.numEmploye = numUtilisateur;
-                        EntreeFeuilleDeTemps entreeFeuilleDeTemps = new EntreeFeuilleDeTemps(empLogin);
-                        MessageBox.Show("Vous êtes connecté en tant qu'administrateur", "Connexion Réussie", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        entreeFeuilleDeTemps.ShowDialog();
-                        this.Show();
-                    }
                 }
                 else
                 {
@@ -105,6 +107,7 @@ namespace gestionRH
                 MessageBox.Show("Cet employé n'existe pas." +'\n'+
                     "Voulez-vous ajouter un nouvel employé?", "Employé Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            */
         }
 
 
