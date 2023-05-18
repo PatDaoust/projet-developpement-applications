@@ -9,6 +9,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static gestionRH.SecurePasswordHasher;
 
 namespace gestionRH
 {
@@ -17,46 +18,42 @@ namespace gestionRH
         public static int numUtilisateur;
         public static List<EmployeModel> employeList = new List<EmployeModel>();
         public static List<FeuilleTempsModel> feuilleList = new List<FeuilleTempsModel>();
+        public String motPasse = "";
+        public Employe employeLogin;
         public InterfaceMenu()
         {
             InitializeComponent();
             employeList = SqliteDataAccess.LoadEmploye();
+            //txbLoginUtilisateur is user entered number
+            //numUtilisateur = employeLogin.numEmploye;
+            //txbNumUtilisateur.Text = numUtilisateur.ToString();
         }
 
         private void btnMenuAdmin_Click(object sender, EventArgs e)
         {
-            FeuilleTemps feuilleTemps = new FeuilleTemps();
-            Employe empLogin;
-            try
-            {
-                numUtilisateur = Convert.ToInt32(txbLoginUtilisateur.Text);
-                empLogin = new Employe(numUtilisateur, feuilleTemps);
+            try {
+                motPasse = txbMotPasse.Text;
+                numUtilisateur = Int32.Parse(txbLoginUtilisateur.Text);
+                FeuilleTemps feuilleTemps = new FeuilleTemps();
+                employeLogin = new Employe(numUtilisateur, feuilleTemps);
+                employeLogin.numEmploye = numUtilisateur;
+                
 
-                if (EntrerEmploye(empLogin))
-                {
-                    if (numUtilisateur < 1000)
-                    {
+                if (EntrerEmploye(employeLogin)){
+                    string verifierPasse = employeLogin.hashMotDePasse;
+                    if (Verify(motPasse, verifierPasse)) {
+                        FeuilleTempsGRH feuilleTempsGRH = new FeuilleTempsGRH(employeLogin);
                         this.Hide();
-                        empLogin.numEmploye = numUtilisateur;
-                        LoginGRH loginGRH = new LoginGRH(empLogin);
-                        loginGRH.ShowDialog();
-                        this.Show();
+                        feuilleTempsGRH.ShowDialog();
+                        this.Close();
+                    } else {
+                        throw new Exception();
                     }
-                    else
-                    {
-                        MessageBox.Show("Seul les administrateurs peuvent accèder à ce menu", "Numéro Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
-                else
-                {
-                    throw new Exception();
-                }
             }
-            catch
-            {
-                MessageBox.Show("Cet employé n'existe pas." + '\n' +
-                    "Voulez-vous ajouter un nouvel employé?", "Employé Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+
+            } catch {
+                MessageBox.Show("Ce mot de passe n'est pas valide", "Accès Invalide", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }        
         }
 
         public void btnMenuEmploye_Click(object sender, EventArgs e)
